@@ -19,7 +19,7 @@ export async function getStaticPaths() {
   const sortedPosts = getSortedPosts(posts);
 
   return sortedPosts.map((post, index) => ({
-    params: { slug: getPostSlug(post.id, post.filePath) },
+    params: { slug: post.id.replace(/\.(md|mdx)$/, "") },
     props: {
       post,
       // sortedPosts is newest-first, so "older" (prev) is a higher index
