@@ -1,0 +1,30 @@
+---
+import { getRelativeLocaleUrl } from "astro:i18n";
+import config from "@/config";
+
+type Props = {
+  pageTitle: string | [string, string];
+  pageDesc?: string;
+  class?: string;
+};
+
+const { pageTitle, pageDesc, class: className } = Astro.props;
+
+const locale = Astro.currentLocale ?? config.site.lang;
+const backUrl = config.features.showBackButton
+  ? Astro.url.pathname
+  : getRelativeLocaleUrl(locale, "");
+---
+
+<main class="site-main" id="main-content">
+<div class="main container">
+<div id="primary" class="content-area primary">
+<h1>{pageTitle}</h1>
+<p>{pageDesc}</p>
+<slot />
+</div>
+<div id="secondary" itemtype="https://schema.org/WPSideBar" itemscope="itemscope">
+<div class="ads-sidebar" id="atContainer-4c291b88073226be09bb970d455fd461"></div>
+</div>
+</div>
+</main>

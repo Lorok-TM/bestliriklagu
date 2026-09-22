@@ -1,0 +1,126 @@
+---
+import { getRelativeLocaleUrl } from "astro:i18n";
+import { stripBase, stripLocale } from "@/utils/withBase";
+import { useTranslations } from "@/i18n";
+import config from "@/config";
+import { slugifyStr } from "@/utils/slugify"; // Utilitas bawaan Astro Paper kanggo slug tag
+
+const locale = Astro.currentLocale ?? config.site.lang;
+const t = useTranslations(locale);
+
+const pathWithoutBase = stripBase(Astro.url.pathname).replace(/\/+\$/, "");
+const currentUrlPath = stripLocale(pathWithoutBase, locale);
+
+// Goleki URL domain utama kanggo properti item/URL absolute
+const siteUrl = Astro.site ? Astro.site.origin : "https://domain-sampeyan.com";
+
+// Ngurai path dadi array segment
+let breadcrumbList = currentUrlPath.split("/").slice(1).filter(Boolean);
+
+// DETEKSI KONDISI SINGLE POST (src/pages/posts/[...slug]/index.astro)
+// Ciri utamane: segment pertamane yaiku 'posts' lan duwe slug/judul post ing segment kapindho, nanging dudu kaca pagination angka
+const isSinglePost = breadcrumbList[0] === "posts" && breadcrumbList[1] && isNaN(Number(breadcrumbList[1]));
+
+// Ambil props tags sing dikirim soko komponen bapa (yen ana)
+const { tags = [] } = Astro.props;
+
+if (isSinglePost) {
+  // Yen single post, breadcrumb dipeksa dadi: Home > [Tag Name Pertama]
+  // Yen postingan ora duwe tag, otomatis nggunakake fallback teks tag standar
+  const activeTag = tags.length > 0 ? tags[0] : "Blog";
+  breadcrumbList = [activeTag];
+} else {
+  // Logika standar gawan Astro Paper kanggo kaca liyane
+  if (breadcrumbList[0] === "posts") {
+    breadcrumbList.splice(
+      0,
+      2,
+      `${t.nav.posts} (${t.pagination.page.toLowerCase()} ${breadcrumbList[1] || 1})`
+    );
+  }
+
+  if (breadcrumbList[0] === "tags" && !isNaN(Number(breadcrumbList[2]))) {
+    breadcrumbList.splice(
+      1,
+      3,
+      `${breadcrumbList[1]} ${
+        Number(breadcrumbList[2]) === 1
+          ? ""
+          : `(t.pagination.page.toLowerCase() {breadcrumbList[2]})`
+      }`
+    );
+  }
+}
+
+const decodeSegment = (value: string) => {
+  try {
+    return decodeURIComponent(value);
+  } catch {
+    return value;
+  }
+};
+
+const navLabels: Record<string, string> = {
+  posts: t.nav.posts,
+  tags: t.nav.tags,
+  about: t.nav.about,
+  archives: t.nav.archives,
+  search: t.nav.search,
+};
+---
+
+<nav class="breadcrumb" aria-label="breadcrumb" itemscope="itemscope" itemtype="https://schema.org/BreadcrumbList">
+  <ul class="container">
+    <li itemprop="itemListElement" itemscope="itemscope" itemtype="https://schema.org/ListItem">
+      <a itemprop="item" href={getRelativeLocaleUrl(locale, "")}>
+        <span itemprop="name">{t.nav.home}</span>
+      </a>
+      <meta itemprop="position" content="1" />
+      <span aria-hidden="true">&raquo;</span>
+    </li>
+    {
+      breadcrumbList.map((breadcrumb, index) => {
+        const isLast = index + 1 === breadcrumbList.length;
+        const position = index + 2; // Nomer urut 2, 3, dst
+        const label = navLabels[breadcrumb] ?? decodeSegment(breadcrumb);
+
+        // LOGIKA BARU KANGGO URL SING AKURAT LAN KOMPLIT
+        let hrefUrl = "";
+        if (isSinglePost) {
+          // Yen single post, langsung diarahke menyang tag-e
+          hrefUrl = `${siteUrl}/tags/${slugifyStr(breadcrumb)}/`;
+        } else {
+          // Kanggo halaman biasa/arsip tag: gabungke segment saka awal nganti posisi saiki
+          // contone: segment ke-1 dadi /tags, segment ke-2 dadi /tags/nama-tag
+          const currentSegments = currentUrlPath.split("/").slice(1).filter(Boolean).slice(0, index + 1).join("/");
+          hrefUrl = `${siteUrl}${getRelativeLocaleUrl(locale, currentSegments)}`;
+          
+          // Pastikake pungkasan URL nganggo slash (/) yen asline nganggo slash
+          if (!hrefUrl.endsWith("/")) hrefUrl += "/";
+        }
+
+        return isLast ? (
+          <li itemprop="itemListElement" itemscope="itemscope" itemtype="https://schema.org/ListItem">
+            {isSinglePost ? (
+              <a itemprop="item" href={hrefUrl}>
+                <span itemprop="name">{label}</span>
+              </a>
+            ) : (
+                <span itemprop="name" class="current-page">{label}</span>
+                <link itemprop="item" href={hrefUrl} />
+            )}
+            <meta itemprop="position" content={position.toString()} />
+          </li>
+        ) : (
+          <li itemprop="itemListElement" itemscope="itemscope" itemtype="https://schema.org/ListItem">
+            <a itemprop="item" href={hrefUrl}>
+              <span itemprop="name">{label}</span>
+            </a>
+            <meta itemprop="position" content={position.toString()} />
+            <span aria-hidden="true">&raquo;</span>
+          </li>
+        );
+      })
+    }
+  </ul>
+</nav>

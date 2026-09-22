@@ -1,0 +1,19 @@
+{ 
+"name": "Best Lyrics", 
+"short_name": "Best Lirik", 
+"start_url": "https://bestlyrics.vercel.app/",
+"display": "standalone", 
+"background_color": "#ffffff", 
+"theme_color": "#000000", 
+"description": "Best Lyrics adalah situs lirik lagu terlengkap yang menghadirkan keindahan bahasa dari Sabang sampai Merauke.", 
+"icons": 
+[ 
+{"src":"https://bestlyrics.vercel.app/icon-192.png","sizes":"192x192","type":"image/png","purpose":"any"}, 
+{"src":"https://bestlyrics.vercel.app/logo.png","sizes":"512x512","type":"image/png","purpose":"any"} 
+], 
+"screenshots": 
+[ 
+{"src":"https://bestlyrics.vercel.app/wide.png","sizes":"1280x720","type":"image/png","form_factor":"wide","label":"Tampilan Desktop"}, 
+{"src":"https://bestlyrics.vercel.app/narrow.png","sizes":"720x1280","type":"image/png","form_factor":"narrow","label":"Tampilan Mobile"} 
+] 
+} 

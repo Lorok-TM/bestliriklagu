@@ -1,0 +1,13 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+type Props = { disabled?: boolean } & HTMLAttributes<"a">;
+
+const { disabled, class: className, ...attrs } = Astro.props;
+
+const Button = disabled ? "span" : "a";
+---
+
+<Button {...attrs}>
+  <slot />
+</Button>

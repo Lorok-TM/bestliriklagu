@@ -1,0 +1,11 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="site-footer" id="colophon" itemtype="https://schema.org/WPFooter" itemscope="itemscope" itemid="#colophon">
+<div class="footer container">
+<span class="footer-copyright">Copyright © {currentYear}</span>
+</div>
+<button style="display:none" id='tombol-pwa-notif' onclick='uripnoNotifikasiManual()' title='Aktifkan Notifikasi'>🔔</button>
+<script is:inline> document.addEventListener("DOMContentLoaded", function() { const tombol = document.getElementById('tombol-pwa-notif'); if ('Notification' in window) { if (Notification.permission === 'default') { tombol.style.display = 'flex'; } else { tombol.style.display = 'none'; } } }); function uripnoNotifikasiManual() { if ('Notification' in window) { Notification.requestPermission().then(permission => { const tombol = document.getElementById('tombol-pwa-notif'); if (permission === 'granted') { alert('Terima kasih, notifikasi sudah aktif, bro!'); tombol.style.display = 'none'; navigator.serviceWorker.ready.then(reg => { console.log('Service Worker siap untuk push'); }); } else if (permission === 'denied') { alert('Ijin ditolak. Jika ingin menngaktifkan, harus lewat setelan gembok browser, bro.'); tombol.style.display = 'none'; } }); } } </script>
+</footer>

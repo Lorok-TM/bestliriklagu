@@ -1,0 +1,49 @@
+---
+import { getRelativeLocaleUrl } from "astro:i18n";
+import { stripBase, stripLocale } from "@/utils/withBase";
+import { useTranslations } from "@/i18n";
+import config from "@/config";
+
+const { site, features } = config;
+const locale = Astro.currentLocale ?? config.site.lang;
+const t = useTranslations(locale);
+
+// Strip the base prefix so isActive comparisons work regardless of deploy subdirectory.
+// e.g. with base "/blog": "/blog/posts/slug" → "/posts/slug"
+const relativePath = stripBase(Astro.url.pathname);
+const pathWithoutTrailingSlash =
+  relativePath.endsWith("/") && relativePath !== "/"
+    ? relativePath.slice(0, -1)
+    : relativePath;
+
+const currentPath = stripLocale(pathWithoutTrailingSlash, locale);
+
+const isActive = (path: string) => {
+  const currentPathArray = currentPath.split("/").filter(p => p.trim());
+  const pathArray = path.split("/").filter(p => p.trim());
+  return currentPath === path || currentPathArray[0] === pathArray[0];
+};
+---
+
+<header class="site-header" id="masthead" itemtype="https://schema.org/WPHeader" itemscope="itemscope" itemid="#masthead">
+<div class="header container">
+<div class="site-branding" itemtype="https://schema.org/Organization" itemscope="itemscope">
+<span class="site-title" itemprop="name">
+<a href={getRelativeLocaleUrl(locale, "")} rel="home" itemprop="url">{site.title}</a>
+</span>
+</div>
+    <nav class="site-nav" id="primary-site-navigation" aria-label="Primary Site Navigation" itemtype="https://schema.org/SiteNavigationElement" itemscope="itemscope">
+      <ul>
+        <li><a href={getRelativeLocaleUrl(locale, "posts")}>{t.nav.posts}</a></li>
+        <li><a href={getRelativeLocaleUrl(locale, "tags")}>{t.nav.tags}</a></li>
+        <li><a href={getRelativeLocaleUrl(locale, "about")}>{t.nav.about}</a></li>
+        <li><a href={getRelativeLocaleUrl(locale, "archives")}>{t.nav.archives}</a></li>
+        <li><a href={getRelativeLocaleUrl(locale, "search")}>{t.nav.search}</a></li>
+      </ul>
+    </nav>
+    <input type="checkbox" id="dark-toggle" class="sr-only" />
+    <label for="dark-toggle" class="dark-btn">Mode ☯</label>
+    <input type="checkbox" id="menu-toggle" class="sr-only" role="switch" aria-label="Toggle Menu" />
+    <label for="menu-toggle" class="menu-btn">Menu ☰</label>
+  </div>
+</header>

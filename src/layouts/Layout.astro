@@ -1,0 +1,213 @@
+---
+import { Font } from "astro:assets";
+import { getRelativeLocaleUrl } from "astro:i18n";
+import { resolveDefaultOgImagePath } from "@/utils/resolveDefaultOgImagePath";
+import { getAssetPath } from "@/utils/withBase";
+import config from "@/config";
+
+type Props = {
+  title?: string;
+  description?: string;
+  ogImage?: string;
+  canonicalURL?: string;
+};
+
+const { site } = config;
+
+const {
+  title = site.title,
+  description = site.description,
+  ogImage = resolveDefaultOgImagePath(config),
+  canonicalURL = new URL(Astro.url.pathname, Astro.site).href,
+} = Astro.props;
+
+const socialImageURL = new URL(ogImage, Astro.site ?? Astro.url);
+const rssHref = getRelativeLocaleUrl(
+  Astro.currentLocale ?? config.site.lang,
+  "rss.xml"
+);
+---
+
+<!doctype html>
+<html dir={site.dir ?? "ltr"} lang={Astro.currentLocale ?? site.lang}>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/svg+xml" href={getAssetPath("favicon.svg")}>
+    <link rel="icon" href={getAssetPath("favicon.ico")}>
+    <link rel="canonical" href={canonicalURL}>
+    <meta name="generator" content={Astro.generator}>
+
+    <title>{title}</title>
+    <meta name="title" content={title}>
+    <meta name="description" content={description}>
+    <meta name="author" content={site.author}>
+    <link rel="sitemap" href={getAssetPath("sitemap-index.xml")}>
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content={site.title}>
+    <meta property="og:title" content={title}>
+    <meta property="og:description" content={description}>
+    <meta property="og:url" content={canonicalURL}>
+    <meta property="og:image" content={socialImageURL}>
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content={canonicalURL}>
+    <meta property="twitter:title" content={title}>
+    <meta property="twitter:description" content={description}>
+    <meta property="twitter:image" content={socialImageURL}>
+
+<link rel="alternate" type="application/rss+xml" title={site.title} href={new URL(rssHref, Astro.site)}>
+{ogImage && (
+<link rel="preload" href={ogImage} as="image" type="image/png" fetchpriority="high" crossorigin="anonymous">
+)}
+<meta name="google-site-verification" content="gZct-lzgHHdKpx5r-KpUVkdsKD7UEyqbWy4sCQmIntI">
+<slot name="head" />
+
+<meta content='#fff' name='theme-color'>
+<meta content='#fff' name='msapplication-navbutton-color'>
+<meta content='#fff' name='apple-mobile-web-app-status-bar-style'>
+<meta content='yes' name='mobile-web-app-capable'>
+<link rel="manifest" href="/manifest.json">
+<script is:inline>if ('serviceWorker' in navigator) { window.addEventListener('load', function() { navigator.serviceWorker.register('/sw.js') .then(function(registration) { console.log('PWA ServiceWorker sukses didaftarkan di scope: ', registration.scope); }) .catch(function(err) { console.log('PWA ServiceWorker gagal didaftarkan: ', err); }); }); } </script>
+<script is:inline>function setAstroTheme() {const savedTheme = localStorage.getItem("theme");const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;const darkToggle = document.getElementById("dark-toggle"); if (savedTheme === "dark" || (!savedTheme && systemPrefersDark)) { if (darkToggle) darkToggle.checked = true;} else { if (darkToggle) darkToggle.checked = false;}} document.addEventListener("DOMContentLoaded", () => {setAstroTheme();const darkToggle = document.getElementById("dark-toggle");darkToggle?.addEventListener("change", (e) => { if (e.target.checked) {localStorage.setItem("theme", "dark");} else {localStorage.setItem("theme", "light");}});});</script>
+
+<style is:inline>
+html{scrollbar-width:thin;scrollbar-color:#777 transparent}
+:root{color-scheme:light dark;
+--bg-basic:light-dark(#fff,#272727);
+--teks-basic:light-dark(#222,#e0e0e0);
+--border-basic:light-dark(#ccc,#444);
+--bg-header:light-dark(#f5f5f5,#555);
+--bg-menu:light-dark(#f6f8fa,#333); 
+--bg-main:light-dark(#E7F6FF,#373737);
+--gray1:rgb(155 155 155/.1);
+--gray2:rgb(155 155 155/.2);
+--bg-sm:light-dark(rgb(232 240 254),#444);
+}
+:root:has(#dark-toggle:checked) {color-scheme:dark}
+@media (prefers-color-scheme: dark) {:root:not(:has(#dark-toggle:checked)) {color-scheme:light}}
+body{background-color:var(--bg-basic);color:var(--teks-basic);margin:0;padding:0;font-family:Arial,sans-serif;font-weight:normal;font-style:normal;font-variant:normal;line-height:1.65em;font-size:16px;text-align:left}
+*,::after,::before{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}
+ul,li{list-style:none;margin:0;padding:0}
+a{text-decoration:none}
+h1{font-size:20px}
+h1,p{margin-top:0}
+h2{font-size:18px;margin:0 0 6px 0}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0, 0, 0, 0);border:0}
+.text-center{text-align:center}
+.font-bold{font-weight:bold}
+
+.container{max-width:960px;margin:0 auto}
+.site-header{background-color:#070614;position:sticky;top:0;z-index:9}
+.site-header,.site-header a{color:#fff}
+.header.container{display:flex;justify-content:space-between;align-items:center;padding:15px}
+
+.site-main{background-color:var(--bg-main)}
+.site-main.single{background-color:transparent}
+.main.container{padding:15px}
+.site-footer{border-top:1px solid var(--border-basic)}
+.footer.container{text-align:center;padding:30px}
+
+.site-title{font-weight:bold;font-size:1.3rem}
+.site-nav{display:flex;align-items:center;gap:20px}
+.site-nav ul{display:flex;gap:15px}
+.site-nav a:hover{text-decoration:underline}
+.menu-btn,.dark-btn{cursor:pointer;padding:5px 10px;user-select:none}
+.menu-btn{display:none}
+@media (max-width: 768px) {
+.menu-btn{display:inline-block}
+.site-nav ul{display:none;position:fixed;top:0;right:100px;background-color:#070614;
+flex-direction:column;padding:15px;gap:10px;box-shadow:0 4px 6px rgba(0,0,0,0.1);z-index:10;max-height:100vh;overflow-y:auto}
+:has(#menu-toggle:checked) .site-nav ul{display:flex}
+:has(#menu-toggle:checked) .menu-btn::before{content:'';position:fixed;top:0;left:0;right:0;bottom:0;background-color:rgb(0 0 0/.5);z-index:7;backdrop-filter:blur(2px)}
+html:has(#menu-toggle:checked),body:has(#menu-toggle:checked) {overflow:hidden}
+}
+
+#hero{margin:0;background-color:var(--bg-sm)}
+.hero.container{padding:24px 15px}
+
+img{width:100%;max-width:100%;height:auto;object-fit:cover;display:block}
+
+#featured,#recent-posts{margin:0 0 24px 0}
+.wrap-title{display:inline-block;background:rgb(240 249 255);color:#212121;padding:5px 10px;margin-bottom:15px;font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:1px;border-radius:15px 0 10px 15px;position:relative;overflow:hidden;box-shadow:0 4px 6px rgb(0 0 0 / .1);line-height:1.3}
+
+.li-card{background-color:var(--bg-basic);position:relative;overflow:hidden;margin:0 0 15px 0}
+.li-card h2{padding:12px 15px;border-bottom:1px solid var(--gray2)}
+.li-card p{padding:0 15px 15px 15px;margin-bottom:0}
+
+.breadcrumb ul{display:flex;gap:8px;padding:15px}
+.breadcrumb a{margin-right:5px}
+.breadcrumb a:hover{text-decoration:underline}
+.breadcrumb [aria-current="page"] {opacity:.6}
+
+.hero-wrapper{position:relative;overflow:hidden;margin:0 0 20px 0}
+
+.entry-header{margin-bottom:20px}
+h1.entry-title{margin:0 0 15px 0}
+
+.search{background-color:var(--bg-basic);padding:15px;margin:0 0 15px 0;border-radius:12px;border:1px solid var(--border-basic)}
+.search .pagefind-ui__search-input.svelte-e9gkc3{background-color:rgb(155 155 155/.1)}
+.search .pagefind-ui__result{border-bottom:1px solid var(--border-basic)}
+
+.year-data{display:inline-block;padding:7px 10px;margin:0 0 15px 0;line-height:1;background:#1f883d;color:#fff;border-radius:8px}
+.month-group{margin:0 0 20px 0}
+.month-data{padding:6px 15px;margin:15px 0;border-bottom:2px solid #1f883d;border-left:10px solid #1f883d}
+.year-group .font-bold,.month-group .font-bold{font-size:24px}
+.text-muted-foreground{margin-left:6px}
+
+.tags{margin:20px 0}
+.tags ul{position:relative;overflow:hidden;gap:10px;display:flex;flex-wrap:wrap;margin:10px 0}
+.tags ul li{background-color:var(--bg-basic);display:inline-block;line-height:1;border-radius:5px;border:1px solid var(--border-basic)}
+.tags ul li a{display:inline-block;padding:6px}
+
+.share{margin:20px 0;text-align:center}
+.share a{margin:10px}
+
+.related-post{position:relative;margin:24px 0}
+.related-post .related-title{font-size:18px;font-weight:bold;margin-bottom:15px}
+.related-post ul li{margin:8px 0}
+
+.navigation{position:relative;overflow:hidden;margin:20px 0;padding:10px 0;display:grid;grid-gap:10px;grid-template-columns:1fr 1fr;border-top:1px solid var(--border-basic)}
+.navigation .prev{text-align:left}
+.navigation .next{text-align:right}
+
+.pagination{display:flex;justify-content:center;align-items:center;gap:24px;padding:24px 0}
+.pagination a{font-weight:bold}
+.pagination a [aria-current="page"] {opacity:.6}
+.pagination .page-number{color:inherit;font-size:.95rem}
+
+#secondary{max-width:320px;margin:0 auto}
+.ads-sidebar{position:relative;overflow:hidden;text-align:center;margin:20px auto}
+.ads-sidebar img{width:100%;height:100%;border-radius:8px}
+
+@media (width > 480px) {
+.multy-posts{position:relative;display:grid;grid-gap:15px;grid-template-columns:1fr 1fr}
+.multy-posts .li-card{margin:0}
+}
+
+@media (width > 768px) {
+.main.container{position:relative}
+.main.container::after{display:block;content:"";clear:both}
+#primary{width:calc(70% - 20px);float:left}
+#secondary{width:30%;float:right}
+#primary,#secondary{position:sticky;top:80px}
+.multy-posts{grid-gap:20px}
+}
+
+.sidebar-featured{padding:1rem;background-color:var(--gray1);border:1px solid var(--border-basic);border-radius:8px}
+.sidebar-featured .featured-title{font-size:1.15rem;border-bottom:2px solid var(--border-basic);padding-bottom:0.5rem;margin-bottom:0.75rem}
+.sidebar-featured li{margin-bottom:0.5rem}
+.sidebar-featured li.active a{font-weight:bold}
+.sidebar-featured a:hover{color:#2563eb}
+
+#tombol-pwa-notif{position:fixed;bottom:20px;right:20px;width:50px;height:50px;background-color:#007bff;color:white;border-radius:50%;border:none;box-shadow:0 4px 10px rgb(0 0 0/.3);cursor:pointer;z-index:9999;display:flex;align-items:center;justify-content:center;font-size:20px;transition:all .3s ease}
+#tombol-pwa-notif:hover{transform:scale(1.1)}
+
+</style>
+</head>
+<body itemtype="https://schema.org/Blog" itemscope="itemscope">
+<slot />
+<script is:inline>const jSa = () => {['mousemove', 'mousedown', 'touchstart', 'scroll'].forEach(event => {window.removeEventListener(event, jSa);});var script = document.createElement('script');script.type = "text/javascript";script.async = true;script.src = 'http' + (location.protocol === 'https:' ? 's' : '') + '://friedleastarena.com/4c291b88073226be09bb970d455fd461/invoke.js';document.getElementsByTagName('head')[0].appendChild(script);console.log("jSa Aktif");};['mousemove', 'mousedown', 'touchstart', 'scroll'].forEach(event => {window.addEventListener(event, jSa, { passive: true });});if (typeof atAsyncOptions !== 'object') var atAsyncOptions = [];atAsyncOptions.push({'key': '4c291b88073226be09bb970d455fd461','format': 'js','async': true,'container': 'atContainer-4c291b88073226be09bb970d455fd461','params' : {}});document.addEventListener('DOMContentLoaded', function() {const containerIklan = document.body;const observer = new MutationObserver((mutationsList) => {for (const mutation of mutationsList) {if (mutation.type === 'childList' || mutation.type === 'attributes') {const images = containerIklan.querySelectorAll('img[src*="storageimagedisplay.com"]');images.forEach((img) => {if (img.getAttribute('alt') === '') {observer.disconnect();img.setAttribute('alt', 'Iklan Promosi Pilihan');hubungkanObserver();}});}}});function hubungkanObserver() {observer.observe(containerIklan, {childList: true,subtree: true,attributes: true,attributeFilter: ['alt']});}hubungkanObserver();});</script>
+</body>
+</html>
