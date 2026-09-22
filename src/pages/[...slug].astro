@@ -1,0 +1,23 @@
+---
+import { getCollection } from "astro:content";
+import { getSortedPosts } from "@utils/getSortedPosts";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("posts");
+  const sortedPosts = getSortedPosts(posts);
+
+  return sortedPosts.map((post, index) => ({
+    // KUNCINE: Ngilangno ekstensi .md supoyo dadi slug murni neng root domain
+    params: { slug: post.id.replace(/\.(md|mdx)$/, "") },
+    props: {
+      post,
+      prevPost: index < sortedPosts.length - 1 ? sortedPosts[index + 1] : null,
+      nextPost: index > 0 ? sortedPosts[index - 1] : null,
+    },
+  }));
+}
+
+const { post, prevPost, nextPost } = Astro.props;
+// Ngisor iki kari nggondeli struktur HTML/Layout soko file single post temamu...
+---
+
