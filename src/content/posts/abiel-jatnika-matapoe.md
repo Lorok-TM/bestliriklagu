@@ -1,7 +1,7 @@
 ---
 pubDatetime: 2025-11-10
 title: sembarang
-description: ""
+description:
 ---
 
 Matapoe rek ngampih Tanda rek salin wanci Beurang rek naleukeum ka peuting Cihcir tonggeret recet Ngahudang balilu lalewang
