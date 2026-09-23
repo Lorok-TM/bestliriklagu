@@ -1,9 +1,13 @@
 ---
 author: Katrok
-title: "08 - Angga Dermawan"
-date: 2025-03-07
-categories: 
-  - "timur"
+pubDatetime: 2026-09-12T12:39:00Z
+title: IKI JUDUL NGGO TEST
+slug: 08-angga-dermawan
+featured: false
+draft: false
+tags:
+  - Minang
+description: "nyoba isih nggabru"
 ---
 
 **BESTLIRIKLAGU.COM** - Berikut adalah paparan mengenai lirik Kosong 8 yang dibawakan oleh Angga Dermawan.
