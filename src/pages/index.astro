@@ -22,14 +22,17 @@ const posts = await getCollection("posts");
 const sortedPosts = getSortedPosts(posts);
 
 // =========================================================================
-// 🔥 SULAP UTAMANE: Pangkas rute /posts/ langsung soko kene kanggo kabeh post
-// Kita gae object anyar mawa format ID murni tanpa ekstensi .md / .mdx
+// 🔥 TAMENG SLAMET: Pangkas rute lan suntik default featured = false
+// Supoyo file .md jupukan WordPress sing ora duwe 'featured' tetep LULUS IJO!
 // =========================================================================
 const cleanPosts = sortedPosts.map(post => ({
   ...post,
-  // Kita manipulasi post.id dadi slug murni, mergo Card nggunakake getPostSlug(post.id)
-  // Kanthi ngilangno ekstensi neng kene, rute bakal otomatis jomplang root domain!
-  id: post.id.replace(/\.(md|mdx)$/, ""),
+  id: post.id.replace(/\.(md|mdx)$/, ""), // Pangkas ekstensi dadi slug root domain
+  data: {
+    ...post.data,
+    // Nek data.featured ora ono/undefined, otomatis diisi false soko mburine layar
+    featured: post.data && typeof post.data.featured === "boolean" ? post.data.featured : false,
+  }
 }));
 
 const featuredPosts = cleanPosts.filter(({ data }) => data.featured).slice(0, 10);
@@ -75,16 +78,14 @@ const homePath = getRelativeLocaleUrl(locale, "");
     }
 
 <div class="text-center">
-{/* Tombol 'Semua Post' diarahno menyang halaman daftar isi posts bawaan template */}
 <LinkButton href={getRelativeLocaleUrl(locale, "posts")}>{t.home.allPosts} »</LinkButton>
 </div>
 </div>
 
-<div id="secondary" itemtype="https://schema.org/WPSideBar" itemscope="itemscope">
+<div id="secondary" itemtype="https://schema.org" itemscope="itemscope">
 <div class="ads-sidebar" id="atContainer-4c291b88073226be09bb970d455fd461"></div>
 </div>
 </div>
 </main>
-<Laboratorium / >
 <Footer />
 </Layout>
