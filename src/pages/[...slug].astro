@@ -6,64 +6,31 @@ import Breadcrumb from "@/components/Breadcrumb.astro";
 import Footer from "@/components/Footer.astro";
 import Datetime from "@/components/Datetime.astro";
 import Tag from "@/components/Tag.astro";
-import { getPostUrl } from "@/utils/getPostPaths";
 import { getSortedPosts } from "@/utils/getSortedPosts";
 import { slugifyStr } from "@/utils/slugify";
 import config from "@/config";
-
-// Komponen internal posts dipanggil murni liwat path shortcut resmi
-import ShareLinks from "./posts/_components/ShareLinks.astro";
-import AdjacentPostNav from "./posts/_components/AdjacentPostNav.astro";
 
 export async function getStaticPaths() {
   const posts = await getCollection("posts");
   const sortedPosts = getSortedPosts(posts);
 
-  return sortedPosts.map((post: any, index: number) => ({
-    // Trik pangkas ekstensi .md dadi slug root domain
+  return sortedPosts.map((post: any) => ({
+    // Trik pangkas ekstensi dadi slug root domain murni
     params: { slug: post.id.replace(/\.(md|mdx)\$/, "") },
-    props: {
-      post,
-      prevPost:
-        index < sortedPosts.length - 1
-          ? {
-              id: sortedPosts[index + 1].id,
-              title: sortedPosts[index + 1].data.title,
-              filePath: sortedPosts[index + 1].filePath,
-            }
-          : null,
-      nextPost:
-        index > 0
-          ? {
-              id: sortedPosts[index - 1].id,
-              title: sortedPosts[index - 1].data.title,
-              filePath: sortedPosts[index - 1].filePath,
-            }
-          : null,
-    },
+    props: { post },
   }));
 }
 
-type AdjacentPost = {
-  id: string;
-  title: string;
-  filePath: string | undefined;
-} | null;
-
 type Props = {
   post: CollectionEntry<"posts">;
-  prevPost: AdjacentPost;
-  nextPost: AdjacentPost;
 };
 
-const { post, prevPost, nextPost } = Astro.props;
-const locale = Astro.currentLocale ?? config.site.lang;
+const { post } = Astro.props;
 
 const {
   title,
   author,
   description,
-  ogImage: initOgImage,
   canonicalURL,
   pubDatetime,
   modDatetime,
@@ -73,26 +40,7 @@ const {
 
 const { Content } = await render(post);
 
-let ogImageUrl: string | undefined;
-
-if (typeof initOgImage === "string") {
-  ogImageUrl = initOgImage;
-} else if (initOgImage?.src) {
-  ogImageUrl = initOgImage.src;
-}
-
-if (!ogImageUrl && config.features.dynamicOgImage) {
-  const postUrl = getPostUrl(post.id, post.filePath, locale).replace(
-    /\/+\$/,
-    ""
-  );
-  ogImageUrl = `${postUrl}/index.png`;
-}
-
-const ogImage = ogImageUrl
-  ? new URL(ogImageUrl, Astro.url.origin).href
-  : undefined;
-
+// --- LOGIKA ARTIKEL TERKAIT ---
 const allPostsForRelated = await getCollection("posts");
 const activePosts = allPostsForRelated.filter((p) => !p.data.draft);
 
@@ -105,6 +53,7 @@ const relatedPosts = activePosts
   })
   .slice(0, 3);
 
+// --- LOGIKA SIDEBAR ARTIKEL PILIHAN ---
 const featuredPosts = activePosts
   .filter((p) => {
     const isFeatured = p.data.featured === true;
@@ -117,8 +66,6 @@ const featuredPosts = activePosts
 <PostLayout
   title={`${title} | ${config.site.title}`}
   description={description}
-  ogImage={ogImage}
-  canonicalURL={canonicalURL}
   pubDatetime={pubDatetime}
   modDatetime={modDatetime}
 >
@@ -128,9 +75,6 @@ const featuredPosts = activePosts
     <div class="main container">
       <div id="primary" class="content-area primary">
         <article class="post hentry" itemtype="https://schema.org" itemscope="itemscope">
-          <div class="hero-wrapper">
-            <img src={ogImage} alt={`Cover: ${title}`} class="hero-img" width="1200" height="630" fetchpriority="high">
-          </div>
           <header class="entry-header">
             <h1 class="entry-title" itemprop="headline">{title}</h1>
             <div class="entry-meta">
@@ -149,8 +93,6 @@ const featuredPosts = activePosts
           </ul>
         </div>
         
-        <ShareLinks />
-        
         {relatedPosts && relatedPosts.length > 0 && (
           <div class="related-post">
             <div class="related-title">Artikel Terkait:</div>
@@ -166,8 +108,6 @@ const featuredPosts = activePosts
             </ul>
           </div>
         )}
-        
-        <AdjacentPostNav {prevPost} {nextPost} />
       </div>
 
       <div id="secondary" itemtype="https://schema.org" itemscope="itemscope">
@@ -188,7 +128,6 @@ const featuredPosts = activePosts
             </ul>
           )}
         </aside>
-        <div class="ads-sidebar" id="atContainer-4c291b88073226be09bb970d455fd461"></div>
       </div>
     </div>
   </main>
