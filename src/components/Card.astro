@@ -17,14 +17,14 @@ const { title, description: initialDescription, ...props } = data;
 const ogImage = (data as any).ogImage as string | undefined;
 
 // =========================================================================
-// 🔥 RAMUAN SAKTI URL & LOWERCASE CARD
-// 1. Ambil URL asli lewat fungsi gawan tema (misal hasile: /posts/slug-judul/)
-// 2. Kene keplak lan pangkas tulisan /posts/ supoyo langsung dadi root domain!
+// 🔥 SULAP UTAMANE URL & TARGET GENERATED IMAGE (IMG SRC)
 // =========================================================================
 const postUrl = getPostUrl(id, filePath, Astro.currentLocale).replace(/^\/posts/, "");
 
-// Gambar cadangan gabungkan URL post dengan /index.png
-const fallbackImage = `\({postUrl.replace(/\/\)/, "")}/index.png`; 
+// KUNCINE: Sanajan URL post wis dadi root domain, manggake rute generator index.png-ne
+// TETEP awake dhewe arahno mlebu menyang folder /posts/ bawaan endpoint asline Vercel!
+const fallbackImage = `/posts${postUrl.replace(/\/$/, "")}/index.png`; 
+
 const finalImage = ogImage || fallbackImage;
 
 // =========================================================================
