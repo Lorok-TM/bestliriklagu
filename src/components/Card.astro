@@ -23,8 +23,8 @@ const fallbackImage = `\({postUrl.replace(/\/\)/, "")}/index.png`;
 const finalImage = ogImage || fallbackImage;
 
 // =========================================================================
-// 🔥 RAMUAN SAKTI: AUTO-SNIPPET CARD (CUPLIKAN OTOMATIS NENG KOTHAK CARD)
-// Yen description neng frontmatter kosong, Card otomatis jupuk soko isi lirik njerone
+// 🔥 RAMUAN SAKTI: AUTO-SNIPPET CARD LOWERCASE
+// Yen description kosong, Card jupuk soko isi lirik lan DIBAWAKNO DADI HURUF CILIK KABEH
 // =========================================================================
 let finalDescription = initialDescription || "";
 
@@ -35,10 +35,13 @@ if (!finalDescription && body) {
     .replace(/^\s*[\r\n]/gm, "")   // Hapus baris kosong
     .trim();
   
-  // 2. Jupuk 100 karakter pertama wae supoyo kerdus-e tetep rapi lan gak dowo tegel
-  finalDescription = cleanBody.length > 100 
+  // 2. Jupuk 100 karakter pertama wae
+  const snippet = cleanBody.length > 100 
     ? cleanBody.substring(0, 100) + "..." 
     : cleanBody;
+    
+  // 3. TEBAS DADI LOWERCASE (HURUF CILIK KABEH)
+  finalDescription = snippet.toLowerCase();
 }
 // =========================================================================
 ---
@@ -50,6 +53,6 @@ if (!finalDescription && body) {
   </a>
   {/* <Datetime {...props} /> */}
   
-  {/* TAMPILNO HASIL CUPLIKAN OTOMATIS */}
+  {/* TAMPILNO HASIL CUPLIKAN HURUF CILIK KABEH */}
   <p>{finalDescription}</p>
 </li>
