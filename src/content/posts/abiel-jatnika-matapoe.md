@@ -1,5 +1,5 @@
 ---
-author: Katrok
+pubDatetime: 2026-09-19T22:59:00Z
 title: Abiel Jatnika Matapoe
 description: ""
 ---
