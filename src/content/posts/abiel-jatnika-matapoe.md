@@ -1,7 +1,12 @@
 ---
-title: Abiel Jatnika - Matapoé
+author: Katrok
+pubDatetime: 2026-09-19T22:59:00Z
+title: Lirik Acok Talompek Kato - Elsa Mayora
+slug: acok-talompek-kato-elsa-mayora
+featured: false
+draft: false
 tags:
-  - sunda
+  - Minang
 ---
 
 Matapoe rek ngampih Tanda rek salin wanci Beurang rek naleukeum ka peuting Cihcir tonggeret recet Ngahudang balilu lalewang
