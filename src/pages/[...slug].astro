@@ -1,0 +1,26 @@
+---
+import { getCollection } from "astro:content";
+import { getSortedPosts } from "@utils/getSortedPosts";
+import PostDetails from "@layouts/PostDetails.astro";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("posts");
+  const sortedPosts = getSortedPosts(posts);
+
+  // Ditambahi ': number' supoyo TypeScript meneng lan Vercel tetep ijo mlohon
+  return sortedPosts.map((post, index: number) => ({
+    // Moco murni soko jeneng file .md WordPress tanpa ekstensi dadi root URL
+    params: { slug: post.id.replace(/\.(md|mdx)$/, "") },
+    props: {
+      post,
+      prevPost: index < sortedPosts.length - 1 ? sortedPosts[index + 1] : null,
+      nextPost: index > 0 ? sortedPosts[index - 1] : null,
+    },
+  }));
+}
+
+const { post, prevPost, nextPost } = Astro.props;
+---
+
+<!-- Nyilih Layout tampilan gawan Astro Paper supoyo desaine ora ambyar -->
+<PostDetails post={post} prevPost={prevPost} nextPost={nextPost} />
