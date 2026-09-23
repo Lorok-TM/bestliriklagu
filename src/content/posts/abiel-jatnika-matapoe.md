@@ -1,6 +1,5 @@
 ---
 title: Abiel Jatnika - Matapoé
-date: 2025-11-10
 tags:
   - sunda
 ---
