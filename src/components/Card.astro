@@ -7,31 +7,49 @@ type Props = {
   variant?: "h2" | "h3";
 } & CollectionEntry<"posts">;
 
-const { variant: Heading = "h2", id, data, filePath } = Astro.props;
+// Kita jupuk properti 'body' soko Astro.props nggo bahan cuplikan otomatis
+const { variant: Heading = "h2", id, data, filePath, body } = Astro.props;
 
-const { title, description, ...props } = data;
+const { title, description: initialDescription, ...props } = data;
 
 // Amankan data ogImage soko TypeScript error
 const ogImage = (data as any).ogImage as string | undefined;
 
-// =========================================================================
-// 🔥 SULAP SLUG UTAMA CARD: Pangkas ekstensi .md / .mdx dadi slug root domain
-// Awake dhewe ora nggunakake getPostUrl gawan asli sing meksa nambah /posts/
-// =========================================================================
+// SULAP SLUG UTAMA CARD: Pangkas rute /posts/
 const cleanSlug = id.replace(/\.(md|mdx)\$/, "");
-const postUrl = `/${cleanSlug}/`;
+const postUrl = `/\${cleanSlug}/`;
 
-// Gambar cadangan gabungkan URL post dengan /index.png
-const fallbackImage = `${postUrl.replace(/\/$/, "")}/index.png`; 
+const fallbackImage = `\({postUrl.replace(/\/\)/, "")}/index.png`; 
 const finalImage = ogImage || fallbackImage;
+
+// =========================================================================
+// 🔥 RAMUAN SAKTI: AUTO-SNIPPET CARD (CUPLIKAN OTOMATIS NENG KOTHAK CARD)
+// Yen description neng frontmatter kosong, Card otomatis jupuk soko isi lirik njerone
+// =========================================================================
+let finalDescription = initialDescription || "";
+
+if (!finalDescription && body) {
+  // 1. Resik-resik lirik soko simbol markdown, tanda kurung, utawa baris kosong
+  const cleanBody = body
+    .replace(/[#*`_\[\]()]/g, "") // Hapus simbol markdown
+    .replace(/^\s*[\r\n]/gm, "")   // Hapus baris kosong
+    .trim();
+  
+  // 2. Jupuk 100 karakter pertama wae supoyo kerdus-e tetep rapi lan gak dowo tegel
+  finalDescription = cleanBody.length > 100 
+    ? cleanBody.substring(0, 100) + "..." 
+    : cleanBody;
+}
+// =========================================================================
 ---
 
 <li class="li-card">
-  {/* Link tak gembok murni langsung neng root domain sak mburine domain plek! */}
   <a href={postUrl}>
     <img src={finalImage} alt={`Cover: ${title}`} class="post-thumb" width="1200" height="630" fetchpriority="high">
     <h2>{title}</h2>
   </a>
   {/* <Datetime {...props} /> */}
-  <p>{description}</p>
+  
+  {/* TAMPILNO HASIL CUPLIKAN OTOMATIS */}
+  <p>{finalDescription}</p>
 </li>
