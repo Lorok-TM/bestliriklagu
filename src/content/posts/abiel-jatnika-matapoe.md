@@ -1,7 +1,7 @@
 ---
 pubDatetime: 2025-11-10
-title: 
-description: ""
+title: sembarang
+description: "di isi kenek, dikosongi yo oleh asalkan petik pembuka penutup ora ilang"
 ---
 
 Matapoe rek ngampih Tanda rek salin wanci Beurang rek naleukeum ka peuting Cihcir tonggeret recet Ngahudang balilu lalewang
