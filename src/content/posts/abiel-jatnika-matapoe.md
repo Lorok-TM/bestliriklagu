@@ -1,8 +1,11 @@
 ---
-pubDatetime: 2025-11-10
+pubDatetime: 2026-09-19T22:59:00Z
 title: sembarang
 description: "di isi kenek, dikosongi yo oleh asalkan petik pembuka penutup ora ilang"
 ---
+
+NGANGGO MODEL 2025-11-10 UTOWO 2026-09-19T22:59:00Z PODO PODO ISO
+
 
 Matapoe rek ngampih Tanda rek salin wanci Beurang rek naleukeum ka peuting Cihcir tonggeret recet Ngahudang balilu lalewang
 
