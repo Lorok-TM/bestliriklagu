@@ -41,6 +41,12 @@ export async function getStaticPaths() {
   }));
 }
 
+type AdjacentPost = {
+  id: string;
+  title: string;
+  filePath: string | undefined;
+} | null;
+
 type Props = {
   post: CollectionEntry<"posts">;
   prevPost: AdjacentPost;
