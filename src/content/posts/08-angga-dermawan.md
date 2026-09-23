@@ -1,4 +1,5 @@
 ---
+author: Katrok
 title: "08 - Angga Dermawan"
 date: 2025-03-07
 categories: 
