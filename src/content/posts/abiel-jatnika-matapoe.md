@@ -7,6 +7,7 @@ featured: false
 draft: false
 tags:
   - Minang
+  - description: "cando si bisu iyo nan parasian muluik takunci hati nan bakato taraso lai nan indak takatokan marasai badan denai jadinyo alun takileh lah tampak dimato"
 ---
 
 Matapoe rek ngampih Tanda rek salin wanci Beurang rek naleukeum ka peuting Cihcir tonggeret recet Ngahudang balilu lalewang
