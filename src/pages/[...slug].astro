@@ -76,7 +76,7 @@ const featuredPosts = activePosts
       <div id="primary" class="content-area primary">
         <article class="post hentry" itemtype="https://schema.org" itemscope="itemscope">
           <header class="entry-header">
-            <h1 class="entry-title" itemprop="headline">{title}</h1>
+            <h1 class="entry-title" itemprop="headline">Lirik Lagu {title}</h1>
             <div class="entry-meta">
               By <span class="posted-by vcard author" itemtype="https://schema.org" itemscope="itemscope" itemprop="author"><a href="/author" class="url fn n" itemprop="url"><span class="author-name" itemprop="name">{author}</span></a></span> / <span class="posted-on"><span class="published" itemprop="datePublished"><Datetime pubDatetime={pubDatetime} modDatetime={modDatetime} timezone={timezone} /></span></span>
             </div>
@@ -101,7 +101,7 @@ const featuredPosts = activePosts
                 const cleanRelatedSlug = relatedPost.id.replace(/\.(md|mdx)\$/, "");
                 return (
                   <li>
-                    <a class="text-accent/85 text-sm" href={`/${cleanRelatedSlug}/`}>{relatedPost.data.title}</a>
+                    <a class="text-accent/85 text-sm" href={`/${cleanRelatedSlug}/`}>Lirik Lagu {relatedPost.data.title}</a>
                   </li>
                 );
               })}
@@ -121,7 +121,7 @@ const featuredPosts = activePosts
                 const cleanFeaturedSlug = fPost.id.replace(/\.(md|mdx)\$/, "");
                 return (
                   <li>
-                    <a href={`/${cleanFeaturedSlug}/`}>{fPost.data.title}</a>
+                    <a href={`/${cleanFeaturedSlug}/`}>Lirik Lagu {fPost.data.title}</a>
                   </li>
                 );
               })}
