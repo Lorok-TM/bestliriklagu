@@ -1,13 +1,8 @@
 ---
-author: Katrok
-pubDatetime: 2026-09-19T22:59:00Z
-title: Abiel Jatnika - Matapoé
-slug: abiel-jatnika-matapoe
-featured: false
-draft: false
-tags:
-  - Sunda
-description: "matapoe rek ngampih tanda rek salin wanci beurang rek naleukeum ka peuting cihcir tonggeret recet ngahudang balilu lalewang"
+title: "Abiel Jatnika - Matapoé"
+date: 2025-11-10
+categories: 
+  - "sunda"
 ---
 
 Matapoe rek ngampih Tanda rek salin wanci Beurang rek naleukeum ka peuting Cihcir tonggeret recet Ngahudang balilu lalewang
