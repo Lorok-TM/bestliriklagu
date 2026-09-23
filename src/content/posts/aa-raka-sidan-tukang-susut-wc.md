@@ -1,7 +1,7 @@
 ---
 title: "AA Raka Sidan - Tukang Susut WC"
 date: 2025-05-01
-featured: false
+featured: true
 draft: false
 categories: 
   - "balinese"
