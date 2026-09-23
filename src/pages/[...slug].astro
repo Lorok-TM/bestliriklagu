@@ -6,24 +6,24 @@ import Breadcrumb from "@/components/Breadcrumb.astro";
 import Footer from "@/components/Footer.astro";
 import Datetime from "@/components/Datetime.astro";
 import Tag from "@/components/Tag.astro";
-import { getPostSlug, getPostUrl } from "@/utils/getPostPaths";
+import { getPostUrl } from "@/utils/getPostPaths";
 import { getSortedPosts } from "@/utils/getSortedPosts";
 import { slugifyStr } from "@/utils/slugify";
-import { toTransitionName } from "@/utils/toTransitionName";
-import ShareLinks from "./_components/ShareLinks.astro";
-import AdjacentPostNav from "./_components/AdjacentPostNav.astro";
 import config from "@/config";
+
+// Komponen internal posts dipanggil murni liwat path shortcut resmi
+import ShareLinks from "./posts/_components/ShareLinks.astro";
+import AdjacentPostNav from "./posts/_components/AdjacentPostNav.astro";
 
 export async function getStaticPaths() {
   const posts = await getCollection("posts");
   const sortedPosts = getSortedPosts(posts);
 
-  return sortedPosts.map((post, index) => ({
-    params: { slug: getPostSlug(post.id, post.filePath) },
+  return sortedPosts.map((post: any, index: number) => ({
+    // Trik pangkas ekstensi .md dadi slug root domain
+    params: { slug: post.id.replace(/\.(md|mdx)\$/, "") },
     props: {
       post,
-      // sortedPosts is newest-first, so "older" (prev) is a higher index
-      // and "newer" (next) is a lower index.
       prevPost:
         index < sortedPosts.length - 1
           ? {
@@ -69,7 +69,6 @@ const {
   modDatetime,
   timezone,
   tags,
-  hideEditPost,
 } = post.data;
 
 const { Content } = await render(post);
@@ -84,7 +83,7 @@ if (typeof initOgImage === "string") {
 
 if (!ogImageUrl && config.features.dynamicOgImage) {
   const postUrl = getPostUrl(post.id, post.filePath, locale).replace(
-    /\/+$/,
+    /\/+\$/,
     ""
   );
   ogImageUrl = `${postUrl}/index.png`;
@@ -94,7 +93,6 @@ const ogImage = ogImageUrl
   ? new URL(ogImageUrl, Astro.url.origin).href
   : undefined;
 
-// --- KODE LOGIKA RELATED POSTS UTUH SAKTISEN (TEMPEL SAK NDHUWURE --- PENUTUP) ---
 const allPostsForRelated = await getCollection("posts");
 const activePosts = allPostsForRelated.filter((p) => !p.data.draft);
 
@@ -106,19 +104,14 @@ const relatedPosts = activePosts
     return isNotCurrent && shareTags;
   })
   .slice(0, 3);
-// --- BATAS KODE LOGIKA ---
 
-// =========================================================================
-// 🔥 LOGIKA SIDEBAR FEATURED POSTS (ANTI-TAMPIL ARTIKEL AKTIF & LIMIT 5)
-// =========================================================================
 const featuredPosts = activePosts
   .filter((p) => {
     const isFeatured = p.data.featured === true;
-    const isNotCurrent = p.id !== post.id; // Iki ramuan anti-tampil saat slug/artikel iki dibukak
+    const isNotCurrent = p.id !== post.id;
     return isFeatured && isNotCurrent;
   })
-  .slice(0, 10); // Angka 10 iki limit-e, Bro. Ganti 3 utawa 4 monggo karepmu.
-// =========================================================================
+  .slice(0, 10);
 ---
 
 <PostLayout
@@ -129,69 +122,75 @@ const featuredPosts = activePosts
   pubDatetime={pubDatetime}
   modDatetime={modDatetime}
 >
-<Header />
-<Breadcrumb tags={tags} />
-<main class="site-main single" id="main-content">
-<div class="main container">
+  <Header />
+  <Breadcrumb tags={tags} />
+  <main class="site-main single" id="main-content">
+    <div class="main container">
+      <div id="primary" class="content-area primary">
+        <article class="post hentry" itemtype="https://schema.org" itemscope="itemscope">
+          <div class="hero-wrapper">
+            <img src={ogImage} alt={`Cover: ${title}`} class="hero-img" width="1200" height="630" fetchpriority="high">
+          </div>
+          <header class="entry-header">
+            <h1 class="entry-title" itemprop="headline">{title}</h1>
+            <div class="entry-meta">
+              By <span class="posted-by vcard author" itemtype="https://schema.org" itemscope="itemscope" itemprop="author"><a href="/author" class="url fn n" itemprop="url"><span class="author-name" itemprop="name">{author}</span></a></span> / <span class="posted-on"><span class="published" itemprop="datePublished"><Datetime pubDatetime={pubDatetime} modDatetime={modDatetime} timezone={timezone} /></span></span>
+            </div>
+          </header>
+          <div class="entry-content clear" itemprop="text">
+            <Content />
+          </div>
+        </article>
+        
+        <div class="tags">
+          <span>Tags: </span>
+          <ul>
+            {tags.map(tag => <Tag tag={slugifyStr(tag)} tagName={tag} />)}
+          </ul>
+        </div>
+        
+        <ShareLinks />
+        
+        {relatedPosts && relatedPosts.length > 0 && (
+          <div class="related-post">
+            <div class="related-title">Artikel Terkait:</div>
+            <ul>
+              {relatedPosts.map((relatedPost) => {
+                const cleanRelatedSlug = relatedPost.id.replace(/\.(md|mdx)\$/, "");
+                return (
+                  <li>
+                    <a class="text-accent/85 text-sm" href={`/${cleanRelatedSlug}/`}>{relatedPost.data.title}</a>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        )}
+        
+        <AdjacentPostNav {prevPost} {nextPost} />
+      </div>
 
-<div id="primary" class="content-area primary">
-<article class="post hentry" itemtype="https://schema.org/CreativeWork" itemscope="itemscope">
-<div class="hero-wrapper">
-<img src={ogImage} alt={`Cover: ${title}`} class="hero-img" width="1200" height="630" fetchpriority="high">
-</div>
-<header class="entry-header">
-<h1 class="entry-title" itemprop="headline">{title}</h1>
-<div class="entry-meta">By <span class="posted-by vcard author" itemtype="https://schema.org/Person" itemscope="itemscope" itemprop="author"><a href="/author" class="url fn n" itemprop="url"><span class="author-name" itemprop="name">{author}</span></a></span> / <span class="posted-on"><span class="published" itemprop="datePublished"><Datetime pubDatetime={pubDatetime} modDatetime={modDatetime} timezone={timezone} /></span></span></div></header>
-<div class="entry-content clear" itemprop="text">
-<Content />
-</div>
-</article>
-<div class="tags">
-<span>Tags: </span>
-<ul>
-{tags.map(tag => <Tag tag={slugifyStr(tag)} tagName={tag} />)}
-</ul>
-</div>
-<ShareLinks />
-{relatedPosts && relatedPosts.length > 0 && (
-<div class="related-post">
-<div class="related-title">Artikel Terkait:</div>
-<ul>
-{relatedPosts.map((relatedPost) => (
-<li>
-<a class="text-accent/85 text-sm" href={`/posts${getPostSlug(relatedPost.id, relatedPost.filePath)}/`}>{relatedPost.data.title}</a>
-{/* {relatedPost.data.description && (<p>{relatedPost.data.description}</p>)} */}
-</li>
-))}
-</ul>
-</div>
-)}
-<AdjacentPostNav {prevPost} {nextPost} />
-</div>
-
-<div id="secondary" itemtype="https://schema.org/WPSideBar" itemscope="itemscope">
-<aside class="sidebar-featured">
-  <div class="featured-title">⭐ Artikel Pilihan</div>
-  {featuredPosts.length === 0 ? (
-    <p class="empty-msg">Tidak ada artikel pilihan.</p>
-  ) : (
-    <ul>
-      {featuredPosts.map((fPost) => {
-        // Njupuk slug nganggo fungsi gawan templatemu ben sinkron URL-e
-        const fSlug = getPostSlug(fPost.id, fPost.filePath);
-        const isActive = fPost.id === post.id; // Penanda nek artikel iki lagi diwoco
-        return (
-          <li>
-            <a href={`/posts${fSlug}`}>{fPost.data.title}</a>
-          </li>
-        );
-      })}
-    </ul>
-  )}
-</aside>
-<div class="ads-sidebar" id="atContainer-4c291b88073226be09bb970d455fd461"></div>
-</div>
-</div>
-</main>
-<Footer />
+      <div id="secondary" itemtype="https://schema.org" itemscope="itemscope">
+        <aside class="sidebar-featured">
+          <div class="featured-title">⭐ Artikel Pilihan</div>
+          {featuredPosts.length === 0 ? (
+            <p class="empty-msg">Tidak ada artikel pilihan.</p>
+          ) : (
+            <ul>
+              {featuredPosts.map((fPost) => {
+                const cleanFeaturedSlug = fPost.id.replace(/\.(md|mdx)\$/, "");
+                return (
+                  <li>
+                    <a href={`/${cleanFeaturedSlug}/`}>{fPost.data.title}</a>
+                  </li>
+                );
+              })}
+            </ul>
+          )}
+        </aside>
+        <div class="ads-sidebar" id="atContainer-4c291b88073226be09bb970d455fd461"></div>
+      </div>
+    </div>
+  </main>
+  <Footer />
 </PostLayout>
