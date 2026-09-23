@@ -2,8 +2,8 @@ import { defineAstroPaperConfig } from "./src/types/config";
 
 export default defineAstroPaperConfig({
   site: {
-    url: "https://bestlyrics.vercel.app/",
-    title: "Best Lyrics",
+    url: "https://bestliriklagu.vercel.app/",
+    title: "Best Lirik Lagu",
     description: "Situs kumpulan lirik lagu terbaru.",
     author: "Katrok",
     profile: "#",
