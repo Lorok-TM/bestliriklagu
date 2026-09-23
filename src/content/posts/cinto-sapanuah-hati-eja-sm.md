@@ -1,6 +1,6 @@
 ---
 author: Katrok
-pubDatetime: 2026-09-12T12:39:00Z
+pubDatetime: 2026-09-22T12:39:00Z
 title: Lirik Cinto Sapanuah Hati - Eja SM (IKI ENEK REPO LAWAS WIS IMG GENERATE)
 slug: cinto-sapanuah-hati-eja-sm
 featured: false
