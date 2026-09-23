@@ -9,17 +9,16 @@ import Tag from "../components/Tag.astro";
 import { getPostUrl } from "../utils/getPostPaths";
 import { getSortedPosts } from "../utils/getSortedPosts";
 import { slugifyStr } from "../utils/slugify";
-import ShareLinks from "./_components/ShareLinks.astro";
-import AdjacentPostNav from "./_components/AdjacentPostNav.astro";
+// KUNCINE ING KENE: Impor dialiarkan mlebu menyang omah asline folder posts dhisik
+import ShareLinks from "./posts/_components/ShareLinks.astro";
+import AdjacentPostNav from "./posts/_components/AdjacentPostNav.astro";
 import config from "../config";
 
 export async function getStaticPaths() {
   const posts = await getCollection("posts");
   const sortedPosts = getSortedPosts(posts);
 
-  // Ditambahi ': any' lan ': number' supoyo TypeScript anteng lan Vercel lulus ijo
   return sortedPosts.map((post: any, index: number) => ({
-    // Iki rute sakti pangkas rute (.md dadi slug murni neng root domain)
     params: { slug: post.id.replace(/\.(md|mdx)\$/, "") },
     props: {
       post,
@@ -92,7 +91,6 @@ const ogImage = ogImageUrl
   ? new URL(ogImageUrl, Astro.url.origin).href
   : undefined;
 
-// --- LOGIKA ARTIKEL TERKAIT ---
 const allPostsForRelated = await getCollection("posts");
 const activePosts = allPostsForRelated.filter((p) => !p.data.draft);
 
@@ -105,7 +103,6 @@ const relatedPosts = activePosts
   })
   .slice(0, 3);
 
-// --- LOGIKA SIDEBAR ARTIKEL PILIHAN ---
 const featuredPosts = activePosts
   .filter((p) => {
     const isFeatured = p.data.featured === true;
@@ -128,14 +125,14 @@ const featuredPosts = activePosts
   <main class="site-main single" id="main-content">
     <div class="main container">
       <div id="primary" class="content-area primary">
-        <article class="post hentry" itemtype="https://schema.org/CreativeWork" itemscope="itemscope">
+        <article class="post hentry" itemtype="https://schema.org" itemscope="itemscope">
           <div class="hero-wrapper">
             <img src={ogImage} alt={`Cover: ${title}`} class="hero-img" width="1200" height="630" fetchpriority="high">
           </div>
           <header class="entry-header">
             <h1 class="entry-title" itemprop="headline">{title}</h1>
             <div class="entry-meta">
-              By <span class="posted-by vcard author" itemtype="https://schema.org/Person" itemscope="itemscope" itemprop="author"><a href="/author" class="url fn n" itemprop="url"><span class="author-name" itemprop="name">{author}</span></a></span> / <span class="posted-on"><span class="published" itemprop="datePublished"><Datetime pubDatetime={pubDatetime} modDatetime={modDatetime} timezone={timezone} /></span></span>
+              By <span class="posted-by vcard author" itemtype="https://schema.org" itemscope="itemscope" itemprop="author"><a href="/author" class="url fn n" itemprop="url"><span class="author-name" itemprop="name">{author}</span></a></span> / <span class="posted-on"><span class="published" itemprop="datePublished"><Datetime pubDatetime={pubDatetime} modDatetime={modDatetime} timezone={timezone} /></span></span>
             </div>
           </header>
           <div class="entry-content clear" itemprop="text">
@@ -157,7 +154,6 @@ const featuredPosts = activePosts
             <div class="related-title">Artikel Terkait:</div>
             <ul>
               {relatedPosts.map((relatedPost) => {
-                // SULAP URL: Nggawe slug murni langsung sak mburine domain
                 const cleanRelatedSlug = relatedPost.id.replace(/\.(md|mdx)\$/, "");
                 return (
                   <li>
@@ -172,7 +168,7 @@ const featuredPosts = activePosts
         <AdjacentPostNav {prevPost} {nextPost} />
       </div>
 
-      <div id="secondary" itemtype="https://schema.org/WPSideBar" itemscope="itemscope">
+      <div id="secondary" itemtype="https://schema.org" itemscope="itemscope">
         <aside class="sidebar-featured">
           <div class="featured-title">⭐ Artikel Pilihan</div>
           {featuredPosts.length === 0 ? (
@@ -180,7 +176,6 @@ const featuredPosts = activePosts
           ) : (
             <ul>
               {featuredPosts.map((fPost) => {
-                // SULAP URL: Tebas /posts/ soko sidebar sisan
                 const cleanFeaturedSlug = fPost.id.replace(/\.(md|mdx)\$/, "");
                 return (
                   <li>
