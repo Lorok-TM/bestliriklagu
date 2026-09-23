@@ -1,7 +1,4 @@
 ---
-author: Katrok
-pubDatetime: 2026-09-19T22:59:00Z
-title: Lirik Acok Talompek Kato - Elsa Mayora
 description: ""
 ---
 
