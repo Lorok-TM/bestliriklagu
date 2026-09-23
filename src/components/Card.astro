@@ -1,6 +1,5 @@
 ---
 import type { CollectionEntry } from "astro:content";
-import { getPostUrl } from "@/utils/getPostPaths";
 import { toTransitionName } from "@/utils/toTransitionName";
 import Datetime from "./Datetime.astro";
 
@@ -12,24 +11,27 @@ const { variant: Heading = "h2", id, data, filePath } = Astro.props;
 
 const { title, description, ...props } = data;
 
-//  Amankan data ogImage soko TypeScript error
+// Amankan data ogImage soko TypeScript error
 const ogImage = (data as any).ogImage as string | undefined;
 
-// AMBIL URL POSTINGAN SECARA DINAMIS
-const postUrl = getPostUrl(id, filePath, Astro.currentLocale);
+// =========================================================================
+// 🔥 SULAP SLUG UTAMA CARD: Pangkas ekstensi .md / .mdx dadi slug root domain
+// Awake dhewe ora nggunakake getPostUrl gawan asli sing meksa nambah /posts/
+// =========================================================================
+const cleanSlug = id.replace(/\.(md|mdx)\$/, "");
+const postUrl = `/${cleanSlug}/`;
 
-//  Gambar cadangan yen postingan ora duwe ogImage (bisa diganti URL liyane)
-// BIKIN DINAMIS: Gabungkan URL post dengan /index.png
-// Menggunakan regex untuk memastikan tidak ada double slash (//) di dalam path
+// Gambar cadangan gabungkan URL post dengan /index.png
 const fallbackImage = `${postUrl.replace(/\/$/, "")}/index.png`; 
 const finalImage = ogImage || fallbackImage;
 ---
 
 <li class="li-card">
-<a href={getPostUrl(id, filePath, Astro.currentLocale)}>
-<img src={finalImage} alt={`Cover: ${title}`} class="post-thumb" width="1200" height="630" fetchpriority="high">
-<h2>{title}</h2>
-</a>
-{/* <Datetime {...props} /> */}
-<p>{description}</p>
+  {/* Link tak gembok murni langsung neng root domain sak mburine domain plek! */}
+  <a href={postUrl}>
+    <img src={finalImage} alt={`Cover: ${title}`} class="post-thumb" width="1200" height="630" fetchpriority="high">
+    <h2>{title}</h2>
+  </a>
+  {/* <Datetime {...props} /> */}
+  <p>{description}</p>
 </li>
