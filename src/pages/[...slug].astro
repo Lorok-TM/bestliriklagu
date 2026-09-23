@@ -77,6 +77,9 @@ const featuredPosts = activePosts
     <div class="main container">
       <div id="primary" class="content-area primary">
         <article class="post hentry" itemtype="https://schema.org" itemscope="itemscope">
+         <div class="hero-wrapper">
+          <img src={ogImage} alt={`Cover: ${title}`} class="hero-img" width="1200" height="630" fetchpriority="high">
+          </div>
           <header class="entry-header">
             <h1 class="entry-title" itemprop="headline">Lirik Lagu {title}</h1>
             <div class="entry-meta">
