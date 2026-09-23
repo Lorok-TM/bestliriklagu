@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-11-10
-title: Abiel Jatnika Matapoe
+title: sembarang
 description: ""
 ---
 
