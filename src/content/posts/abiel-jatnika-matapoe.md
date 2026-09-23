@@ -1,5 +1,5 @@
 ---
-pubDatetime:
+date: 2025-11-10
 title: sembarang
 description: ""
 ---
