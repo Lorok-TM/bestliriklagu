@@ -17,14 +17,14 @@ const formatSlug = (postId: string) => {
 
 <div class="navigation">
   {prevPost && (
-    /* AMAN: Tautan langsung menembak tepat di belakang domain tanpa /posts/ */
+    /* Tautan langsung menembak tepat di belakang domain murni */
     <a href={`/${formatSlug(prevPost.id)}/`} class="prev">
       <span>Prev «</span>
       <div>{prevPost.title}</div>
     </a>
   )}
   {nextPost && (
-    /* AMAN: Tautan langsung menembak tepat di belakang domain tanpa /posts/ */
+    /* Tautan langsung menembak tepat di belakang domain murni */
     <a href={`/${formatSlug(nextPost.id)}/`} class="next">
       <span>» Next</span>
       <div>{nextPost.title}</div>
