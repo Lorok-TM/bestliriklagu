@@ -19,11 +19,9 @@ export async function getStaticPaths() {
   const sortedPosts = getSortedPosts(posts);
 
   return sortedPosts.map((post: any, index: number) => {
-    // Ambil objek artikel mentah sebelum dan sesudahnya
     const rawPrev = index > 0 ? sortedPosts[index - 1] : null;
     const rawNext = index < sortedPosts.length - 1 ? sortedPosts[index + 1] : null;
 
-    // Saring dan bentuk ulang objek agar sesuai dengan tipe data yang diminta AdjacentPostNav
     const prevPost = rawPrev ? {
       id: rawPrev.id,
       title: rawPrev.data.title,
@@ -36,8 +34,11 @@ export async function getStaticPaths() {
       filePath: rawNext.filePath
     } : null;
 
+    // AMAN: Memotong ekstensi .md atau .mdx menggunakan split tanpa simbol Regex $
+    const cleanSlug = post.id.split('.')[0];
+
     return {
-      params: { slug: post.id.replace(/\.(md|mdx)$/, "") },
+      params: { slug: cleanSlug },
       props: { 
         post, 
         prevPost,
@@ -46,6 +47,7 @@ export async function getStaticPaths() {
     };
   });
 }
+
 
 
 // 2. STRUKTUR PROTOKOL TYPE PROPS (Kunci Utama Penghilang Silang Merah)
