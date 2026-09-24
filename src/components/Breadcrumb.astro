@@ -3,30 +3,31 @@ import { getRelativeLocaleUrl } from "astro:i18n";
 import { stripBase, stripLocale } from "@/utils/withBase";
 import { useTranslations } from "@/i18n";
 import config from "@/config";
-import { slugifyStr } from "@/utils/slugify"; // Utilitas bawaan Astro Paper kanggo slug tag
+import { slugifyStr } from "@/utils/slugify";
 
+export type Props = {
+  tags?: string[];
+};
+
+const { tags = [] } = Astro.props;
 const locale = Astro.currentLocale ?? config.site.lang;
 const t = useTranslations(locale);
 
 const pathWithoutBase = stripBase(Astro.url.pathname).replace(/\/+\$/, "");
 const currentUrlPath = stripLocale(pathWithoutBase, locale);
-
-// Goleki URL domain utama kanggo properti item/URL absolute
 const siteUrl = Astro.site ? Astro.site.origin : "https://domain-sampeyan.com";
 
-// Ngurai path dadi array segment
 let breadcrumbList = currentUrlPath.split("/").slice(1).filter(Boolean);
 
-// DETEKSI KONDISI SINGLE POST (src/pages/posts/[...slug]/index.astro)
-// Ciri utamane: segment pertamane yaiku 'posts' lan duwe slug/judul post ing segment kapindho, nanging dudu kaca pagination angka
+// DETEKSI SINGLE POST JUMBUH KALIYAN KANG DIKERSAKAKEN
 const isSinglePost = breadcrumbList[0] === "posts" && breadcrumbList[1] && isNaN(Number(breadcrumbList[1]));
 
-// Ambil props tags sing dikirim soko komponen bapa (yen ana)
-const { tags = [] } = Astro.props;
+// Fungsi helper kanggo nggawe Title Case (Huruf Gedhe ing awal kata)
+const toTitleCase = (str: string) => 
+  str.replace(/[-_]/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
 
 if (isSinglePost) {
-  // Yen single post, breadcrumb dipeksa dadi: Home > [Tag Name Pertama]
-  // Yen postingan ora duwe tag, otomatis nggunakake fallback teks tag standar
+  // Yen single post, dipeksa dadi siji segmen isi Tag Pertama (Title Case)
   const activeTag = tags.length > 0 ? tags[0] : "Blog";
   breadcrumbList = [activeTag];
 } else {
