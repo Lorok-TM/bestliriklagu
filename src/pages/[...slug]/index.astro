@@ -3,13 +3,24 @@ import { type CollectionEntry, getCollection, render } from "astro:content";
 import PostLayout from "@/layouts/PostLayout.astro";
 import Header from "@/components/Header.astro";
 import Breadcrumb from "@/components/Breadcrumb.astro";
-import AdjacentPostNav from "./_components/AdjacentPostNav.astro";
 import Footer from "@/components/Footer.astro";
 import Datetime from "@/components/Datetime.astro";
 import Tag from "@/components/Tag.astro";
 import { getSortedPosts } from "@/utils/getSortedPosts";
 import { slugifyStr } from "@/utils/slugify";
 import config from "@/config";
+
+
+
+// 1. Impor komponen (yang saat ini silang merah)
+import AdjacentPostNav from "./_components/AdjacentPostNav.astro";
+
+// 2. Simulasi pencarian data postingan (sesuaikan dengan logika Anda)
+// Anggap saja kita sudah mendapatkan data 'sebelum' dan 'sesudah' artikel saat ini
+const prevPost = null; 
+const nextPost = null;
+
+
 
 export async function getStaticPaths() {
   const posts = await getCollection("posts");
@@ -110,7 +121,7 @@ const featuredPosts = activePosts
           </div>
         )}
 
-<AdjacentPostNav /> 
+<AdjacentPostNav prevPost={prevPost} nextPost={nextPost} />
 
       </div>
 
