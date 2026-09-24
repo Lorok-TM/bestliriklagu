@@ -6,8 +6,6 @@ export interface Props {
 
 const { tag, size = "sm" } = Astro.props;
 
-// Fungsi mandiri kanggo nggawe Huruf Gedhe ing saben awal kata (Title Case)
-// Tuladha: "java-pop" utawa "dangdut koplo" dadi "Java Pop" utawa "Dangdut Koplo"
 const cleanTagName = tag
   .replace(/-/g, " ") // ngilangke tanda strip dadi spasi
   .split(" ")
@@ -33,8 +31,4 @@ const cleanTagName = tag
   </a>
 </li>
 
-<style>
-  a {
-    @apply hover:text-skin-accent focus-visible:p-1;
-  }
-</style>
+
