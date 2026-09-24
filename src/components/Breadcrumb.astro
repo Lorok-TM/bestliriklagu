@@ -1,113 +1,40 @@
 ---
 import { getRelativeLocaleUrl } from "astro:i18n";
-import { stripBase, stripLocale } from "@/utils/withBase";
-import { useTranslations } from "@/i18n";
 import config from "@/config";
-import { slugifyStr } from "@/utils/slugify";
 
 type Props = {
   tags?: string[];
 };
 
-const locale = Astro.currentLocale ?? config.site.lang;
-const t = useTranslations(locale);
-
-const pathWithoutBase = stripBase(Astro.url.pathname).replace(/\/+\$/, "");
-const currentUrlPath = stripLocale(pathWithoutBase, locale);
-
-const siteUrl = Astro.site ? Astro.site.origin : "https://domain-sampeyan.com";
-
-let breadcrumbList = currentUrlPath.split("/").slice(1).filter(Boolean);
-
-const isSinglePost = breadcrumbList[0] === "posts" && breadcrumbList[1] && isNaN(Number(breadcrumbList[1]));
-
 const { tags = [] } = Astro.props;
+const locale = Astro.currentLocale ?? config.site.lang;
 
-if (isSinglePost) {
-  const activeTag = tags.length > 0 && tags[0] ? tags[0] : "Blog";
-  breadcrumbList = [activeTag];
-} else {
-  if (breadcrumbList[0] === "posts") {
-    breadcrumbList.splice(
-      0,
-      2,
-      `${t.nav.posts} (${t.pagination.page.toLowerCase()} ${breadcrumbList[1] || 1})`
-    );
-  }
+// Jupuk segment URL saiki
+const segments = Astro.url.pathname.split("/").filter(Boolean);
+const isSinglePost = segments.length > 0 && !segments.includes("tags");
 
-  if (breadcrumbList[0] === "tags" && !isNaN(Number(breadcrumbList[2]))) {
-    breadcrumbList.splice(
-      1,
-      3,
-      `${breadcrumbList[1]} ${
-        Number(breadcrumbList[2]) === 1
-          ? ""
-          : `(t.pagination.page.toLowerCase() {breadcrumbList[2]})`
-      }`
-    );
-  }
+// Logika ngganti isi breadcrumb posisi kapindho dadi tag
+let displayLabel = "Blog";
+let tagSlug = "";
+
+if (isSinglePost && tags.length > 0) {
+  displayLabel = tags[0].replace(/-/g, " ").replace(/\b\w/g, c => c.toUpperCase());
+  tagSlug = tags[0].toLowerCase().replace(/\s+/g, "-");
 }
-
-const decodeSegment = (value: string) => {
-  try {
-    return decodeURIComponent(value);
-  } catch {
-    return value;
-  }
-};
-
-const navLabels: Record<string, string> = {
-  posts: t.nav.posts,
-  tags: t.nav.tags,
-  about: t.nav.about,
-  archives: t.nav.archives,
-  search: t.nav.search,
-};
 ---
 
-<nav class="breadcrumb" aria-label="breadcrumb" itemscope="itemscope" itemtype="https://schema.org/BreadcrumbList">
-  <ul class="container">
-    <li itemprop="itemListElement" itemscope="itemscope" itemtype="https://schema.org/ListItem">
-      <a itemprop="item" href={getRelativeLocaleUrl(locale, "")}>
-        <span itemprop="name">{t.nav.home}</span>
-      </a>
-      <meta itemprop="position" content="1" />
-      <span aria-hidden="true">&raquo;</span>
+<nav aria-label="breadcrumb">
+  <ul class="flex space-x-2">
+    <li>
+      <a href={getRelativeLocaleUrl(locale, "")}>Home</a>
+      <span>&raquo;</span>
     </li>
-    {
-      breadcrumbList.map((breadcrumb, index) => {
-        const isLast = index + 1 === breadcrumbList.length;
-        const position = index + 2;
-        const label = navLabels[breadcrumb] ?? decodeSegment(breadcrumb);
-
-        let hrefUrl = "";
-        if (isSinglePost) {
-          const tagSlug = slugifyStr(breadcrumb);
-          hrefUrl = `${siteUrl}${getRelativeLocaleUrl(locale, `tags/\${tagSlug}/`)}`;
-        } else {
-          const currentSegments = currentUrlPath.split("/").slice(1).filter(Boolean).slice(0, index + 1).join("/");
-          hrefUrl = `${siteUrl}${getRelativeLocaleUrl(locale, currentSegments)}`;
-        }
-
-        if (!hrefUrl.endsWith("/")) hrefUrl += "/";
-
-        return (
-          <li itemprop="itemListElement" itemscope="itemscope" itemtype="https://schema.org/ListItem">
-            {isLast && !isSinglePost ? (
-              <>
-                <span itemprop="name" class="current-page">{label}</span>
-                <link itemprop="item" href={hrefUrl} />
-              </>
-            ) : (
-              <a itemprop="item" href={hrefUrl}>
-                <span itemprop="name">{label}</span>
-              </a>
-            )}
-            <meta itemprop="position" content={position.toString()} />
-            {!isLast && <span aria-hidden="true">&raquo;</span>}
-          </li>
-        );
-      })
-    }
+    <li>
+      {isSinglePost && tagSlug ? (
+        <a href={getRelativeLocaleUrl(locale, `tags/${tagSlug}/`)}>{displayLabel}</a>
+      ) : (
+        <span>{displayLabel}</span>
+      )}
+    </li>
   </ul>
 </nav>
