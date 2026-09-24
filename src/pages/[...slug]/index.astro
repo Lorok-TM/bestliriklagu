@@ -10,6 +10,7 @@ import { getSortedPosts } from "@/utils/getSortedPosts";
 import { slugifyStr } from "@/utils/slugify";
 import config from "@/config";
 
+// @ts-ignore
 import AdjacentPostNav from "../_components/AdjacentPostNav.astro";
 
 // 1. FUNGSI PENYEDIA RUTE OTOMATIS (getStaticPaths)
@@ -55,7 +56,7 @@ type Props = {
 };
 
 // Ambil hak akses properti yang dikirimkan oleh getStaticPaths()
-const { post, prevPost, nextPost } = Astro.props;
+const { post, prevPost = null, nextPost = null } = Astro.props;
 
 const {
   title,
