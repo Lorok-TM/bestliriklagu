@@ -1,10 +1,9 @@
 import os
 import re
-import yaml
 
 folder_path = "src/content/posts" 
 
-print(f"Mulai konversi kapital murni ing folder: {folder_path}")
+print(f"Mulai konversi meksa kapital murni ing folder: {folder_path}")
 
 for filename in os.listdir(folder_path):
     if filename.endswith(".md"):
@@ -13,63 +12,67 @@ for filename in os.listdir(folder_path):
         with open(file_path, 'r', encoding='utf-8') as f:
             content = f.read()
         
+        # Goleki bagean frontmatter nganggo Regex murni (luwih aman tinimbang PyYAML)
         match = re.match(r'^---\s*\n(.*?)\n---\s*\n(.*)', content, re.DOTALL)
         if match:
             frontmatter_raw = match.group(1)
             body = match.group(2)
             
-            try:
-                data = yaml.safe_load(frontmatter_raw) or {}
+            # Goleki baris categories utawa tags
+            cat_match = re.search(r'categories:\s*\n((?:\s*-\s*.*\n?)*)', frontmatter_raw)
+            tag_match = re.search(r'tags:\s*\n((?:\s*-\s*.*\n?)*)', frontmatter_raw)
+            
+            target_match = cat_match if cat_match else tag_match
+            
+            if target_match:
+                lines = target_match.group(1).strip().split('\n')
+                new_tags = []
+                for line in lines:
+                    if '-' in line:
+                        # Jupuk reged-reged tag lawas
+                        val = line.split('-', 1)[1].strip().strip('"').strip("'")
+                        if val:
+                            # Ngerubah dadi kapital awal kata (Title Case) lan ngilangke strip (-)
+                            clean_val = val.replace("-", " ").title()
+                            new_tags.append(f'  - "{clean_val}"')
                 
-                # Jupuk categories lawas
-                categories = data.get('categories') or data.get('tags') or []
-                if not isinstance(categories, list):
-                    categories = [categories]
+                # Susun struktur tags anyar
+                tags_block = "tags:\n" + "\n".join(new_tags)
                 
-                # PROSES UTAMA: Nggawe HTML murni dadi Huruf Gedhe ing saben awal kata liwat Python
-                # Tuladha: "dangdut-koplo" dadi "Dangdut Koplo"
-                tags_kapital = []
-                for cat in categories:
-                    if cat:
-                        clean_cat = str(cat).replace("-", " ")
-                        # Nggawe saben awal kata dadi kapital (Title Case)
-                        title_cat = clean_cat.title() 
-                        tags_kapital.append(title_cat)
+                # Buang blok categories utawa tags sing lawas saka frontmatter
+                fm_clean = frontmatter_raw
+                if cat_match:
+                    fm_clean = fm_clean.replace(cat_match.group(0), "")
+                if tag_match:
+                    fm_clean = fm_clean.replace(tag_match.group(0), "")
                 
-                if not tags_kapital:
-                    tags_kapital = ["Uncategorized"]
+                # Jupuk data title lan date asli
+                title_find = re.search(r'^title:\s*(.*)', fm_clean, re.MULTILINE)
+                date_find = re.search(r'^(date|pubDatetime):\s*(.*)', fm_clean, re.MULTILINE)
                 
-                # Cek yen data tags-e wis bener-bener format kapital, skip wae
-                if 'author' in data and 'slug' in data and data.get('tags') == tags_kapital:
-                    continue
+                title_val = title_find.group(1).strip().strip('"').strip("'") if title_find else filename.replace('.md', '')
+                date_val = date_find.group(2).strip() if date_find else '2026-09-24T00:00:00Z'
                 
-                title = data.get('title', filename.replace('.md', ''))
-                date_val = data.get('date') or data.get('pubDatetime') or '2026-09-24T00:00:00Z'
-                if isinstance(date_val, str) and len(date_val) == 10:
+                if len(date_val) == 10:
                     date_val = f"{date_val}T00:00:00Z"
                 
                 slug_val = os.path.splitext(filename).lower().replace(" ", "-")
                 slug_clean = re.sub(r'[^a-z0-9\-]', '', slug_val)
                 
-                new_data = {
-                    'author': 'Admin',
-                    'pubDatetime': date_val,
-                    'title': title,
-                    'slug': slug_clean,
-                    'featured': False,
-                    'draft': False,
-                    'tags': tags_kapital, # Mlebu kene wis wujud huruf kapital murni
-                    'description': f"Lirik lagu {title}."
-                }
+                # Bangun frontmatter anyar sing wis di-meksa Kapital murni
+                new_fm = f"""author: Admin
+pubDatetime: {date_val}
+title: "{title_val}"
+slug: "{slug_clean}"
+featured: false
+draft: false
+{tags_block}
+description: "Lirik lagu {title_val}." """
                 
-                new_frontmatter = yaml.dump(new_data, sort_keys=False, allow_unicode=True)
-                new_content = f"---\n{new_frontmatter}---\n{body}"
+                new_content = f"---\n{new_fm}\n---\n{body}"
                 
                 with open(file_path, 'w', encoding='utf-8') as f:
                     f.write(new_content)
-                print(f"Sukses ngerubah HTML Kapital: {filename} -> {tags_kapital}")
-                
-            except Exception as e:
-                print(f"Gagal maca frontmatter ing {filename}: {e}")
+                print(f"Sukses Meksa Kapital: {filename}")
 
-print("Konversi rampung kabeh!")
+print("Selesai! Kabeh tags saiki wis dadi Huruf Gedhe permanen ing berkas .md.")
