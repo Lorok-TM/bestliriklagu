@@ -1,6 +1,7 @@
 ---
 title: "Ajeng Febria - Tuku Ketan"
 date: 2026-07-22
+featured: true
 categories: 
   - "dangdut"
   - "java"
