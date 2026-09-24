@@ -49,10 +49,8 @@ if (!finalDescription && body) {
 
 <li class="li-card">
   {/* URL saiki wis dijamin sinkron 100% lan langsung manggon neng root domain! */}
-  <a href={postUrl}>
-    <img src={finalImage} alt={`Cover: ${title}`} class="post-thumb" width="1200" height="630" fetchpriority="high">
-    <h2>Lirik Lagu {title}</h2>
-  </a>
+  {/* <img src={finalImage} alt={`Cover: ${title}`} class="post-thumb" width="1200" height="630" fetchpriority="high"> */}
+  <h2><a href={postUrl}>Lirik Lagu {title}</a></h2>
   {/* <Datetime {...props} /> */}
   <p>{finalDescription}</p>
 </li>
