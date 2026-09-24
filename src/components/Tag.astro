@@ -12,16 +12,13 @@ type Props = {
 const { tag, tagName, size = "lg" } = Astro.props;
 
 const locale = Astro.currentLocale ?? config.site.lang;
-
-# Ngilangke tanda strip (-) dadi spasi biasa
-const cleanName = tagName.replace(/-/g, " ");
 ---
 
 <li>
   <a 
-    href={getRelativeLocaleUrl(locale, `tags/${tag}/`)} 
-    style="text-transform: capitalize;"
+    href={getRelativeLocaleUrl(locale, `tags/${tag}/`)}
+    class="capitalize"
   >
-    {cleanName}
+    {tagName.replace(/-/g, " ")}
   </a>
 </li>
