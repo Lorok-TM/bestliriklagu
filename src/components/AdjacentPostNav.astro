@@ -1,13 +1,19 @@
 ---
-// @ts-nocheck
+import IconArrowLeft from "@/assets/icons/IconArrowLeft.svg";
+import IconArrowRight from "@/assets/icons/IconArrowRight.svg";
 import { getPostUrl } from "@/utils/getPostPaths";
 import { useTranslations } from "@/i18n";
 import config from "@/config";
 
-// Kita gunakan tipe 'any' agar TypeScript mengizinkan format objek apa pun dari index.astro
+type AdjacentPost = {
+  id: string;
+  title: string;
+  filePath: string | undefined;
+} | null;
+
 type Props = {
-  prevPost: any;
-  nextPost: any;
+  prevPost: AdjacentPost;
+  nextPost: AdjacentPost;
 };
 
 const { prevPost, nextPost } = Astro.props;
@@ -16,16 +22,16 @@ const t = useTranslations(locale);
 ---
 
 <div class="navigation">
-  {prevPost && (
-    <a href={getPostUrl(prevPost.id, prevPost.filePath, locale)} class="prev">
-      <span>Prev «</span>
-      <div>{prevPost.title}</div>
-    </a>
-  )}
-  {nextPost && (
-    <a href={getPostUrl(nextPost.id, nextPost.filePath, locale)} class="next">
-      <span>» Next</span>
-      <div>{nextPost.title}</div>
-    </a>
-  )}
+{prevPost && (
+<a href={getPostUrl(prevPost.id, prevPost.filePath, locale)} class="prev">
+<span>Prev «</span>
+<div>{prevPost.title}</div>
+</a>
+)}
+{nextPost && (
+<a href={getPostUrl(nextPost.id, nextPost.filePath, locale)} class="next">
+<span>» Next</span>
+<div>{nextPost.title}</div>
+</a>
+)}
 </div>
