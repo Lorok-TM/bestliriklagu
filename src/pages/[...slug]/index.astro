@@ -18,12 +18,25 @@ export async function getStaticPaths() {
   const sortedPosts = getSortedPosts(posts);
 
   return sortedPosts.map((post: any, index: number) => {
-    // Cari data artikel sebelum dan sesudahnya dari daftar terurut
-    const prevPost = index > 0 ? sortedPosts[index - 1] : null;
-    const nextPost = index < sortedPosts.length - 1 ? sortedPosts[index + 1] : null;
+    // Ambil objek artikel mentah sebelum dan sesudahnya
+    const rawPrev = index > 0 ? sortedPosts[index - 1] : null;
+    const rawNext = index < sortedPosts.length - 1 ? sortedPosts[index + 1] : null;
+
+    // Saring dan bentuk ulang objek agar sesuai dengan tipe data yang diminta AdjacentPostNav
+    const prevPost = rawPrev ? {
+      id: rawPrev.id,
+      title: rawPrev.data.title,
+      filePath: rawPrev.filePath
+    } : null;
+
+    const nextPost = rawNext ? {
+      id: rawNext.id,
+      title: rawNext.data.title,
+      filePath: rawNext.filePath
+    } : null;
 
     return {
-      params: { slug: post.id.replace(/\.(md|mdx)\$/, "") },
+      params: { slug: post.id.replace(/\.(md|mdx)$/, "") },
       props: { 
         post, 
         prevPost,
@@ -32,6 +45,7 @@ export async function getStaticPaths() {
     };
   });
 }
+
 
 // 2. STRUKTUR PROTOKOL TYPE PROPS (Kunci Utama Penghilang Silang Merah)
 type Props = {
