@@ -103,7 +103,7 @@ const featuredPosts = activePosts
                 const cleanRelatedSlug = relatedPost.id.replace(/\.(md|mdx)\$/, "");
                 return (
                   <li>
-                    <a class="text-accent/85 text-sm" href={`/${cleanRelatedSlug}/`}>Lirik Lagu {relatedPost.data.title}</a>
+                    <a href={`/${cleanRelatedSlug}/`}>Lirik Lagu {relatedPost.data.title}</a>
                   </li>
                 );
               })}
