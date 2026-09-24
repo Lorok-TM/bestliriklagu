@@ -1,6 +1,7 @@
 ---
 title: "Abay - Pitih Bakauik"
 date: 2025-10-01
+featured: true
 categories: 
   - "minang"
 ---
