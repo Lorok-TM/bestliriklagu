@@ -1,10 +1,14 @@
 ---
-title: "Adella Girls - Ngapain Repot"
-date: 2025-11-13
-categories: 
-  - "dangdut"
+author: Admin
+pubDatetime: 2025-11-13
+title: Adella Girls - Ngapain Repot
+slug: adella-girls-ngapain-repot
+featured: false
+draft: false
+tags:
+- dangdut
+description: Postingan ngenani Adella Girls - Ngapain Repot.
 ---
-
 Jang lanjut chat nanti laba Sherlock saja ko di mana bakudapa Ade ko bagus ini ka sumpah sa mau nikah Jang bikin pusing sa pusing karna umur su tua
 
 Aman saja mo ngapain mo repot Tunjugan sampe tua turun dari freeport Hooneymoon di inggris di paris di jerman Su pasti ko deng sa barang jalan aman

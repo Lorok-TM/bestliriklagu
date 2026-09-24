@@ -1,10 +1,14 @@
 ---
-title: "2 Minggu - Glenn Samuel"
-date: 2025-03-16
-categories: 
-  - "indonesia"
+author: Admin
+pubDatetime: 2025-03-16
+title: 2 Minggu - Glenn Samuel
+slug: 2-minggu-glenn-samuel
+featured: false
+draft: false
+tags:
+- indonesia
+description: Postingan ngenani 2 Minggu - Glenn Samuel.
 ---
-
 **BESTLIRIKLAGU.COM** - Berikut adalah paparan mengenai lirik 2 Minggu yang dibawakan oleh Glenn Samuel.
 
 Dua minggu tak bicara Masih tak terima bahwa Saling bersalah hey

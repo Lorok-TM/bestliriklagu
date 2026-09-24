@@ -1,10 +1,14 @@
 ---
-title: "Ajeng Febria - Ngapain Repot"
-date: 2025-11-05
-categories: 
-  - "timur"
+author: Admin
+pubDatetime: 2025-11-05
+title: Ajeng Febria - Ngapain Repot
+slug: ajeng-febria-ngapain-repot
+featured: false
+draft: false
+tags:
+- timur
+description: Postingan ngenani Ajeng Febria - Ngapain Repot.
 ---
-
 Jang lanjut chat nanti laba Sherlock saja ko di mana bakudapa Ade ko bagus ini ka sumpah sa mau nikah Jang bikin pusing sa pusing karna umur su tua
 
 Aman saja mo ngapain mo repot Tunjugan sampe tua turun dari freeport Hooneymoon di inggris di paris di jerman Su pasti ko deng sa barang jalan aman

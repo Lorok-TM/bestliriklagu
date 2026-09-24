@@ -1,10 +1,14 @@
 ---
-title: "Ajeng Febria - Macam Manalah"
-date: 2026-07-22
-categories: 
-  - "dangdut"
+author: Admin
+pubDatetime: 2026-07-22
+title: Ajeng Febria - Macam Manalah
+slug: ajeng-febria-macam-manalah
+featured: false
+draft: false
+tags:
+- dangdut
+description: Postingan ngenani Ajeng Febria - Macam Manalah.
 ---
-
 Kau mau datang, datanglah.. Kau mau pergi, pergilah.. Kau mau marah, marahlah.. Kau suka aku, alhamdulillah..
 
 Kau benci aku, ada ku kisah Kau tak suka akupun tak apalah Bila kawan macam kau tak rela salah Tak berkawan dengan kaupun tak rugilah

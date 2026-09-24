@@ -1,10 +1,14 @@
 ---
-title: "Ade Astrid - Stasion Bandung"
-date: 2024-05-13
-categories: 
-  - "sunda"
+author: Admin
+pubDatetime: 2024-05-13
+title: Ade Astrid - Stasion Bandung
+slug: ade-astrid-stasion-bandung
+featured: false
+draft: false
+tags:
+- sunda
+description: Postingan ngenani Ade Astrid - Stasion Bandung.
 ---
-
 **Lirik Stasion Bandung - Ade Astrid X Gerengseng Team**
 
 Basa urang paturay Wengi eta di stasion bandung Anjeun ngarangkul pageuh Cimata maseuhan na dada

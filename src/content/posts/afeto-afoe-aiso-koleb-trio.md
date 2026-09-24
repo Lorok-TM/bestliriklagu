@@ -1,10 +1,14 @@
 ---
-title: "Afeto Afoe Aiso - Koleb Trio"
-date: 2025-05-13
-categories: 
-  - "nias"
+author: Admin
+pubDatetime: 2025-05-13
+title: Afeto Afoe Aiso - Koleb Trio
+slug: afeto-afoe-aiso-koleb-trio
+featured: false
+draft: false
+tags:
+- nias
+description: Postingan ngenani Afeto Afoe Aiso - Koleb Trio.
 ---
-
 Fao lawuo we’e awogu Dofi zolosi tawa horogu Metalu mbongi ulau mowengu Moido mukoli badano sarou
 
 Ba gatua silo niha niha Ba nose ha bulu dugala Ufaigi yawa mbanua lobawa Notobini ba hogu geu soya

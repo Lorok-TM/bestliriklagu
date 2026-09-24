@@ -1,10 +1,14 @@
 ---
-title: "Ainida Diaz - Ratak Indak Batapi"
-date: 2025-10-22
-categories: 
-  - "minang"
+author: Admin
+pubDatetime: 2025-10-22
+title: Ainida Diaz - Ratak Indak Batapi
+slug: ainida-diaz-ratak-indak-batapi
+featured: false
+draft: false
+tags:
+- minang
+description: Postingan ngenani Ainida Diaz - Ratak Indak Batapi.
 ---
-
 Kok kapacah pacah banalah Bia denai indak bacamin lai Kok bapisah pisah banalah Bia denai cari ganti nan lain
 
 Usah umpamo ratak indak batapi Pacah nan indak mungkin pulo Dibalakang denai uda bamain api Jikok lah banci katokan sajo

@@ -1,10 +1,14 @@
 ---
-title: "Ajeng Febria - Aishiteru 3"
-date: 2026-07-10
-categories: 
-  - "dangdut"
+author: Admin
+pubDatetime: 2026-07-10
+title: Ajeng Febria - Aishiteru 3
+slug: ajeng-febria-aishiteru-3
+featured: false
+draft: false
+tags:
+- dangdut
+description: Postingan ngenani Ajeng Febria - Aishiteru 3.
 ---
-
 ![Ajeng Febria - Aishiteru 3](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgTD7oCvF7xfkkyIP76JZbXl0CwVIEtAVD7ICtPGgV6hyphenhyphen8XbfLbg3J_uIUDaBwNeVkH1r_TmA1HD8RiPVZy4xaNAcT6eV7_JLdZXR35K9he6xJ9ecTscjL3BkxYuF4tAxSnJUAlveGvzJTGIcKgeJM_BAadXtEzrhMkK9Yw77T-eNMKDc7f0ipSrVsz3mMp/s1280/ajeng-febria-aishiteru-3.webp)
 
 Ketika kau marah dan cemburu Kau kelihatan begitu tampan Walau kadang mengesalkan Kau s’lalu bertanya Dan penuh curiga Kutahu kau takut kehilanganku

@@ -1,10 +1,14 @@
 ---
-title: "Adlan - Suratan"
-date: 2022-09-20
-categories: 
-  - "indonesia"
+author: Admin
+pubDatetime: 2022-09-20
+title: Adlan - Suratan
+slug: adlan-suratan
+featured: false
+draft: false
+tags:
+- indonesia
+description: Postingan ngenani Adlan - Suratan.
 ---
-
 ## Lirik Lagu Suratan - Adlan
 
 > Selami hati ini sayang Lihatlah diri ini sayang Adakah benar diri ini Tak ada ruang Bertapak di hatimu

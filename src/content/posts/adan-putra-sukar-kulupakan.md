@@ -1,10 +1,14 @@
 ---
-title: "Adan Putra - Sukar Kulupakan"
-date: 2023-05-31
-categories: 
-  - "melayu"
+author: Admin
+pubDatetime: 2023-05-31
+title: Adan Putra - Sukar Kulupakan
+slug: adan-putra-sukar-kulupakan
+featured: false
+draft: false
+tags:
+- melayu
+description: Postingan ngenani Adan Putra - Sukar Kulupakan.
 ---
-
 Lirik Lagu Melayu dengan judul Sukar Ku Lupakan yang dinyanyikan oleh Adan Putra dan diciptakan oleh Ag Astillah dengan irama musik Slow Rock.
 
 "_tak pernah ku menduga tak pernah ku menyangka kau hadir hanyalah dalam mimpi sukar tuk ku lupakan_" itulah cuplikan dari lirik lagu Adan Putra - Sukar Kulupakan.

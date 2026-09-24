@@ -1,10 +1,14 @@
 ---
-title: "Ainida Diaz - Sangketo Harato Pusako"
-date: 2025-08-28
-categories: 
-  - "minang"
+author: Admin
+pubDatetime: 2025-08-28
+title: Ainida Diaz - Sangketo Harato Pusako
+slug: ainida-diaz-sangketo-harato-pusako
+featured: false
+draft: false
+tags:
+- minang
+description: Postingan ngenani Ainida Diaz - Sangketo Harato Pusako.
 ---
-
 Tinggi manjulang batang batuang Akanyo manjelo dalam talago Basabab denai tinggakan kampuang Karano sangketo harato pusako
 
 Adaik jo budi dijunjuang tinggi Denai mangalah ka nan bana Santano diupek dicara co I Ribuik sadonyo kito badunsanak

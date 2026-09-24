@@ -1,10 +1,14 @@
 ---
-title: "Aishiteru 2 - Silvy Kumalasari"
-date: 2026-07-19
-categories: 
-  - "dangdut"
+author: Admin
+pubDatetime: 2026-07-19
+title: Aishiteru 2 - Silvy Kumalasari
+slug: aishiteru-2-silvy-kumalasari
+featured: false
+draft: false
+tags:
+- dangdut
+description: Postingan ngenani Aishiteru 2 - Silvy Kumalasari.
 ---
-
 Bila cinta tak terbalas Janji hanya tinggal janji Sakit hati yang ku rasa
 
 Sekian lama ku menunggu Saat-saat ku bersamamu Dan kini aku kembali Siksa menanggung rindu Semua sia-sia

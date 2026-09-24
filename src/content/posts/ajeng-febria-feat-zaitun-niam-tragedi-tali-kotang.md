@@ -1,10 +1,14 @@
 ---
-title: "Ajeng Febria feat. Zaitun Niam - Tragedi Tali Kotang"
-date: 2026-07-12
-categories: 
-  - "java"
+author: Admin
+pubDatetime: 2026-07-12
+title: Ajeng Febria feat. Zaitun Niam - Tragedi Tali Kotang
+slug: ajeng-febria-feat-zaitun-niam-tragedi-tali-kotang
+featured: false
+draft: false
+tags:
+- java
+description: Postingan ngenani Ajeng Febria feat. Zaitun Niam - Tragedi Tali Kotang.
 ---
-
 ![Ajeng Febria Feat Zaitun Niam - Tragedi Tali Kotang](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjD7S7Meey24o__87Bna_o-ZuCKX5e6slFaAKgBAPRcr6PdvV6k_3S-3IPX7id8BtqmzaR5xOpa8nwhaVqlNz4Z-7Pgb_1lwvwdfaOY3gsDAzuXZDTRF_Jc6DaqYZmTbF0W0qkYEJy4iZDIAWrtLf9L1iCB8MAKJtKC_qt4h92jIqRC3aBvwYLp6sMYQljx/s1280/ajeng-febria-feat-zaitun-niam-tragedi-tali-kotang.webp)
 
 Ndek biyen wis tak tukokke Wujud tali sak kutange Saikine, lha kok ilang sak slirane Lungo menyang endi Tanpo pamit, ra ngabari Opo lali kowe karo aku iki

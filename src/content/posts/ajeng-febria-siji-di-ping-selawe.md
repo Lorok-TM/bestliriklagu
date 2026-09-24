@@ -1,10 +1,14 @@
 ---
-title: "Ajeng Febria - Siji Di Ping Selawe"
-date: 2026-07-06
-categories: 
-  - "java"
+author: Admin
+pubDatetime: 2026-07-06
+title: Ajeng Febria - Siji Di Ping Selawe
+slug: ajeng-febria-siji-di-ping-selawe
+featured: false
+draft: false
+tags:
+- java
+description: Postingan ngenani Ajeng Febria - Siji Di Ping Selawe.
 ---
-
 ![Ajeng Febria - Siji Di Ping Selawe](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg22-sFxfsW_LF35uQclaLVRXW6bs2PX2gyjXpT2HaQmrx2nS9VoDVUVTIKrRi77N22nrfpgsxx6SEWUv6OlLj6PEzljUdXfta22ox32dLWmzLcvXdEwxU1oQ805YceQjyX_EeJb6mz7r33WGzZscyP6BW8pWGfXxALBrIwRmvHByy9r2LUPWgJbXbzJD3_/s1280/ajeng-febria-siji-di-ping-selawe.webp)
 
 Siji diping selawe Kowe mung siji Tekan selawase Siji diping sedaso Siji – sijine mung kowe sing tak tresno

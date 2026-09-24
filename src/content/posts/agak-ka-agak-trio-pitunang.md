@@ -1,10 +1,14 @@
 ---
-title: "Agak Ka Agak - Trio Pitunang"
-date: 2025-01-16
-categories: 
-  - "minang"
+author: Admin
+pubDatetime: 2025-01-16
+title: Agak Ka Agak - Trio Pitunang
+slug: agak-ka-agak-trio-pitunang
+featured: false
+draft: false
+tags:
+- minang
+description: Postingan ngenani Agak Ka Agak - Trio Pitunang.
 ---
-
 **BESTLIRIKLAGU.COM** - Berikut adalah paparan mengenai lirik Agak Ka Agak yang dibawakan oleh Trio Pitunang.
 
 Lah manahan lukah Urang nan dihulu Gadang ketek ikan tadayo yo tadayo Malang denai di baruah manjalo yo manjalo Sarok nan tabao

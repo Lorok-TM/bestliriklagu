@@ -1,10 +1,14 @@
 ---
-title: "Ade Astrid - Pengen Ndueni"
-date: 2024-05-02
-categories: 
-  - "tarling"
+author: Admin
+pubDatetime: 2024-05-02
+title: Ade Astrid - Pengen Ndueni
+slug: ade-astrid-pengen-ndueni
+featured: false
+draft: false
+tags:
+- tarling
+description: Postingan ngenani Ade Astrid - Pengen Ndueni.
 ---
-
 **Lirik Pengen Ndueni - Ade Astrid**
 
 Minder kaya bli pantes Kanggo ndueni kakang Sadar kita cuma mung modal cinta Ngaca diri bli mungkin ditrima

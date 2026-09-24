@@ -1,10 +1,14 @@
 ---
-title: "Adim MF - Badayuang Surang Diri"
-date: 2025-09-08
-categories: 
-  - "minang"
+author: Admin
+pubDatetime: 2025-09-08
+title: Adim MF - Badayuang Surang Diri
+slug: adim-mf-badayuang-surang-diri
+featured: false
+draft: false
+tags:
+- minang
+description: Postingan ngenani Adim MF - Badayuang Surang Diri.
 ---
-
 Alah babilang maso Alah baganti tahun Kito sairiang jalan Adiak lengahkan denai Adiak indak padulikan diri denai
 
 Sayang denai ka adiak Cinto denai ka adiak Tapi denai maraso surang diri Indak ko adiak pandang Denai ko hanyo punyo adiak surang

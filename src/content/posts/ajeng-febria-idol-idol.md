@@ -1,10 +1,14 @@
 ---
-title: "Ajeng Febria - Idol Idol"
-date: 2026-09-17
-categories: 
-  - "dangdut"
+author: Admin
+pubDatetime: 2026-09-17
+title: Ajeng Febria - Idol Idol
+slug: ajeng-febria-idol-idol
+featured: false
+draft: false
+tags:
+- dangdut
+description: Postingan ngenani Ajeng Febria - Idol Idol.
 ---
-
 Lila lali lali lala..
 
 Helikopter turun ke Padang Banyak askar bawa sinapang Aku hairan budak sekarang kecil-kecil pandai bertunang

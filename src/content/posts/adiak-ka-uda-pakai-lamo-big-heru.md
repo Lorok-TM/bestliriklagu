@@ -1,10 +1,14 @@
 ---
-title: "Adiak Ka Uda Pakai Lamo - Big Heru"
-date: 2025-06-04
-categories: 
-  - "minang"
+author: Admin
+pubDatetime: 2025-06-04
+title: Adiak Ka Uda Pakai Lamo - Big Heru
+slug: adiak-ka-uda-pakai-lamo-big-heru
+featured: false
+draft: false
+tags:
+- minang
+description: Postingan ngenani Adiak Ka Uda Pakai Lamo - Big Heru.
 ---
-
 Maso indak ka babaliak diak Indak ka ba puta ulang Jan sado ka di camehkan Tanang tanangkan fikiran 2x
 
 Indak di awak sajo ndeh diak Lah coiko pandangaran Barek ringan nyo samo di hadang Samo kito jalankan 2x

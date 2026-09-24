@@ -1,10 +1,14 @@
 ---
-title: "Aireia - Hiduplah Untukmu Sendiri"
-date: 2026-01-03
-categories: 
-  - "indonesia"
+author: Admin
+pubDatetime: 2026-01-03
+title: Aireia - Hiduplah Untukmu Sendiri
+slug: aireia-hiduplah-untukmu-sendiri
+featured: false
+draft: false
+tags:
+- indonesia
+description: Postingan ngenani Aireia - Hiduplah Untukmu Sendiri.
 ---
-
 Pernah kau coba bertahan Saat semua menjauh perlahan Suara hati pun tak terdengar Tapi kau tetap melangkah sabar
 
 Jangan menunggu mereka mengerti Mereka tak butuh memahami

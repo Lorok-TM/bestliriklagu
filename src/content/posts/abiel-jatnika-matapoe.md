@@ -1,10 +1,14 @@
 ---
-title: "Abiel Jatnika - Matapoé"
-date: 2025-11-10
-categories: 
-  - "sunda"
+author: Admin
+pubDatetime: 2025-11-10
+title: Abiel Jatnika - Matapoé
+slug: abiel-jatnika-matapoe
+featured: false
+draft: false
+tags:
+- sunda
+description: Postingan ngenani Abiel Jatnika - Matapoé.
 ---
-
 Matapoe rek ngampih Tanda rek salin wanci Beurang rek naleukeum ka peuting Cihcir tonggeret recet Ngahudang balilu lalewang
 
 Laun laun kapi'ati Tukang lantaran mah eta Sumeleket dina jero hate Pikir ngahudang brangta Kahayang biheung laksana Honcewang hate lalewang

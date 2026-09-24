@@ -1,10 +1,14 @@
 ---
-title: "Ainida Diaz - Bialah Mode Iko"
-date: 2025-09-30
-categories: 
-  - "minang"
+author: Admin
+pubDatetime: 2025-09-30
+title: Ainida Diaz - Bialah Mode Iko
+slug: ainida-diaz-bialah-mode-iko
+featured: false
+draft: false
+tags:
+- minang
+description: Postingan ngenani Ainida Diaz - Bialah Mode Iko.
 ---
-
 Bialah panjang rumpuik banto Pado taserak dihalaman Bialah samantaro mode iko Pado tambah jauah kampuang denai tinggakan Bialah samantaro mode iko Pado tambah jauah kampuang denai tinggakan
 
 Salagi bisa ba usaho Dapek pagi abih patang Salagi badan di tampuah nyawo Nan razaki indak ka hilang

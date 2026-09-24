@@ -1,10 +1,15 @@
 ---
-title: "Ade Idaman - Randy Husain Feat Djipeng, Xeindy, Faris Adam"
-date: 2024-12-16
-categories: 
-  - "timur"
+author: Admin
+pubDatetime: 2024-12-16
+title: Ade Idaman - Randy Husain Feat Djipeng, Xeindy, Faris Adam
+slug: ade-idaman-randy-husain-feat-djipeng-xeindy-faris-adam
+featured: false
+draft: false
+tags:
+- timur
+description: Postingan ngenani Ade Idaman - Randy Husain Feat Djipeng, Xeindy, Faris
+  Adam.
 ---
-
 **BESTLIRIKLAGU.COM** - Berikut adalah paparan mengenai lirik Ade Idaman yang dibawakan oleh Randy Husain ft Djipeng, Xeindy, Faris Adam.
 
 Ade manise Kalau boleh tau siapa yang punya Jujur kaka terpesona Lihat ade nona manis macam gula gula

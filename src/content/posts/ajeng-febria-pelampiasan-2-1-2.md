@@ -1,10 +1,14 @@
 ---
-title: "Ajeng Febria - Pelampiasan 2 1/2"
-date: 2026-07-02
-categories: 
-  - "java"
+author: Admin
+pubDatetime: 2026-07-02
+title: Ajeng Febria - Pelampiasan 2 1/2
+slug: ajeng-febria-pelampiasan-2-1-2
+featured: false
+draft: false
+tags:
+- java
+description: Postingan ngenani Ajeng Febria - Pelampiasan 2 1/2.
 ---
-
 Sakjane aku wes kroso Ket pertama koe ngungkapke roso Ngobati pas atimu keloro Basan mari aku sing nanggung loro
 
 Dipekso kon ninggalke Dipekso kon nglalekne Kenangan sing tau digawe Sing tak kiro bakal happy endinge

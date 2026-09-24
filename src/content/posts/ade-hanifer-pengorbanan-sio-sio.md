@@ -1,10 +1,14 @@
 ---
-title: "Ade Hanifer - Pengorbanan Sio Sio"
-date: 2025-09-19
-categories: 
-  - "minang"
+author: Admin
+pubDatetime: 2025-09-19
+title: Ade Hanifer - Pengorbanan Sio Sio
+slug: ade-hanifer-pengorbanan-sio-sio
+featured: false
+draft: false
+tags:
+- minang
+description: Postingan ngenani Ade Hanifer - Pengorbanan Sio Sio.
 ---
-
 Partamo kali kito basuo batamu pandang Denai tadayo rancak ruponyo adiak co bidadari
 
 Hari ka hari cinto ka adiak samakin dalam Denai tarayu manih muluik nyo adiak nan mamikek hati

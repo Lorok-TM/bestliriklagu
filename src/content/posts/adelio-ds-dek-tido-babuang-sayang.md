@@ -1,10 +1,14 @@
 ---
-title: "Adelio DS - Dek Tido Babuang Sayang"
-date: 2025-09-30
-categories: 
-  - "minang"
+author: Admin
+pubDatetime: 2025-09-30
+title: Adelio DS - Dek Tido Babuang Sayang
+slug: adelio-ds-dek-tido-babuang-sayang
+featured: false
+draft: false
+tags:
+- minang
+description: Postingan ngenani Adelio DS - Dek Tido Babuang Sayang.
 ---
-
 Ibo hati bia den tangguangkan Ramuak bathin bia den tahankan Luko padiah saraso dirajam Bak rantiang patah nan batikamkan Luko padiah saraso dirajam Bak rantiang patah nan batikamkan
 
 Bakubua dalam sagalo mimpi mimpi Tiado guno baharok lai Pailah adiak pai usah mambuek luko Lah litak denai manangguang salamoko Pailah adiak pai usah mambuek luko Lah litak denai manangguang salamoko

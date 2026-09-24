@@ -1,10 +1,14 @@
 ---
-title: "Ajeng Febria - Bokong Semok"
-date: 2025-07-03
-categories: 
-  - "osing"
+author: Admin
+pubDatetime: 2025-07-03
+title: Ajeng Febria - Bokong Semok
+slug: ajeng-febria-bokong-semok
+featured: false
+draft: false
+tags:
+- osing
+description: Postingan ngenani Ajeng Febria - Bokong Semok.
 ---
-
 Aran bokong Nongko sesigar Aran alis Nanggal sepisan Kulit kuning lare Kuning langsat Gawe hang nyawang Ngelek idu gorokan asat
 
 Bokong semok Bokonge sopo Eman-eman moto Sing dienggo deleng Lambe sesigar lare Sigar kepundung Kari nggereget Kudu kudu kepingin nyetut

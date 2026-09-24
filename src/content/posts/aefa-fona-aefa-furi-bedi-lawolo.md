@@ -1,10 +1,14 @@
 ---
-title: "Aefa Föna Aefa Furi - Bedi Lawolo"
-date: 2025-03-29
-categories: 
-  - "nias"
+author: Admin
+pubDatetime: 2025-03-29
+title: Aefa Föna Aefa Furi - Bedi Lawolo
+slug: aefa-fona-aefa-furi-bedi-lawolo
+featured: false
+draft: false
+tags:
+- nias
+description: Postingan ngenani Aefa Föna Aefa Furi - Bedi Lawolo.
 ---
-
 **BESTLIRIKLAGU.COM** - Berikut adalah paparan mengenai lirik Aefa Föna Aefa Furi yang dibawakan oleh Bedi Lawolo.
 
 Ögohi gohi Wofo katitiralangi Sihombo hombo Sisökhi na manari

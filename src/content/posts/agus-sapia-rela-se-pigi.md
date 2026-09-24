@@ -1,10 +1,14 @@
 ---
-title: "Agus Sapia - Rela Se Pigi"
-date: 2026-09-09
-categories: 
-  - "timur"
+author: Admin
+pubDatetime: 2026-09-09
+title: Agus Sapia - Rela Se Pigi
+slug: agus-sapia-rela-se-pigi
+featured: false
+draft: false
+tags:
+- timur
+description: Postingan ngenani Agus Sapia - Rela Se Pigi.
 ---
-
 Hapus saja samua rasa Karna memang skarang su seng bisa Dolo memang akang paleng indah Mar sakarang su beda
 
 Bukan beta mau lupa samua Tapi itu yang se pung suka Se lia dia labeh dar beta Lalu lupa deng beta pung samua

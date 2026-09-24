@@ -1,10 +1,14 @@
 ---
-title: "Aidilla - Ganggam Indak Sabara"
-date: 2025-05-31
-categories: 
-  - "minang"
+author: Admin
+pubDatetime: 2025-05-31
+title: Aidilla - Ganggam Indak Sabara
+slug: aidilla-ganggam-indak-sabara
+featured: false
+draft: false
+tags:
+- minang
+description: Postingan ngenani Aidilla - Ganggam Indak Sabara.
 ---
-
 ( . ) Habih dayo rago talatak Habih faham aka baranti Tenggang raso badunsanak Tenggang sakik...Surang diri..
 
 ( . . ) Bak nangko lah untuang nyo badan Kutiko lai baduyun datang Sangkek tido sia nan ka ibo Batanyo sajo..Anggan rasonyo.. Padiah padiah bana.. Jikok ganggam..Indak sabara..

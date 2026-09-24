@@ -1,10 +1,14 @@
 ---
-title: "Ade Astrid - Mikacinta"
-date: 2025-08-21
-categories: 
-  - "sunda"
+author: Admin
+pubDatetime: 2025-08-21
+title: Ade Astrid - Mikacinta
+slug: ade-astrid-mikacinta
+featured: false
+draft: false
+tags:
+- sunda
+description: Postingan ngenani Ade Astrid - Mikacinta.
 ---
-
 Sok lieur ngemutanana Mikacinta kasalira Kitu salah kieu lain Na kumaha lieur ngabandunganana
 
 Mun bener anjeun micinta Kalayan nu sabenerna Sok atuh enggal balaka Sajujurna tong aya rasa kapaksa

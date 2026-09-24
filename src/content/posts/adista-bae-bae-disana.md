@@ -1,10 +1,14 @@
 ---
-title: "Adista - Bae Bae Disana"
-date: 2023-01-17
-categories: 
-  - "indonesia"
+author: Admin
+pubDatetime: 2023-01-17
+title: Adista - Bae Bae Disana
+slug: adista-bae-bae-disana
+featured: false
+draft: false
+tags:
+- indonesia
+description: Postingan ngenani Adista - Bae Bae Disana.
 ---
-
 Adista bersama Musik Proaktif rilis single berjudul "Bae Bae Disana" yang diciptakan oleh Resar, menceritakan tentang hubungan cinta serta keluarga mereka yang berjauhan jarak karena merantau untuk memenuhi kebutuhan hidup dan masa depan.
 
 "_bae bae disana jaga hati dan rasa tunggu diriku kembali untukmu bae bae disana jaga hati dan rasa ku yakin hati kita kan menyatu_" itulah cuplikan dari lirik lagu Bae Bae Disana yang dinyanyikan oleh Adista dengan irama musik Pop.

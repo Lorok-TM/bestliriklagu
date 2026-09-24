@@ -1,11 +1,15 @@
 ---
-title: "Ajeng Febria - Negoro Angin"
-date: 2026-07-15
-categories: 
-  - "dangdut"
-  - "java"
+author: Admin
+pubDatetime: 2026-07-15
+title: Ajeng Febria - Negoro Angin
+slug: ajeng-febria-negoro-angin
+featured: false
+draft: false
+tags:
+- dangdut
+- java
+description: Postingan ngenani Ajeng Febria - Negoro Angin.
 ---
-
 Tak tempuh sewelasewu kilometer Nyusul awakmu Sing nate janji mulih ning aku Sak wise rampungke urusanmu
 
 Tak tekat tekatke Masio ora tahu ngalami adem mines siji Mosok ra ditemoni Nekat ku mung pingin niliki

@@ -1,10 +1,14 @@
 ---
-title: "Ajeng Febria - Betah"
-date: 2026-07-15
-categories: 
-  - "java"
+author: Admin
+pubDatetime: 2026-07-15
+title: Ajeng Febria - Betah
+slug: ajeng-febria-betah
+featured: false
+draft: false
+tags:
+- java
+description: Postingan ngenani Ajeng Febria - Betah.
 ---
-
 Eh mas mriki lenggaho Lenggah mriki Opo nyongko hubungane bakal sedowo iki Kadang bungah kadang susah Akeh susahe naning syukur…. tetep betah
 
 Udan grimis ngancani Nyruput kopi Nyambi mbayangke angen angen sing durung pasti Dugi sepuh, tetep happy Penting donga lan usaha mboten henti

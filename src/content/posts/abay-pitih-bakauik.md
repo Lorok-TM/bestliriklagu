@@ -1,11 +1,14 @@
 ---
-title: "Abay - Pitih Bakauik"
-date: 2025-10-01
-featured: true
-categories: 
-  - "minang"
+author: Admin
+pubDatetime: 2025-10-01
+title: Abay - Pitih Bakauik
+slug: abay-pitih-bakauik
+featured: false
+draft: false
+tags:
+- minang
+description: Postingan ngenani Abay - Pitih Bakauik.
 ---
-
 Disangko urang den dapek pitih bakauik Iko nan manyalang iko hutang ka di tutuik Iko nan manyalang iko hutang ka di tutuik
 
 Kok di jalehkan ndk mungkin urang picayo Dek di hati ramuak denai masih galak juo Dek di hati ramuak denai masih galak juo

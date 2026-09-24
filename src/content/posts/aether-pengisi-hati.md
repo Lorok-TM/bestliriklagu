@@ -1,10 +1,14 @@
 ---
-title: "Aether - Pengisi Hati"
-date: 2023-06-20
-categories: 
-  - "indonesia"
+author: Admin
+pubDatetime: 2023-06-20
+title: Aether - Pengisi Hati
+slug: aether-pengisi-hati
+featured: false
+draft: false
+tags:
+- indonesia
+description: Postingan ngenani Aether - Pengisi Hati.
 ---
-
 Lirik Lagu Indo dengan judul Pengisi Hati yang dinyanyikan oleh Aether dan diciptakan oleh Ipoet, Bobby dengan irama musik Pop.
 
 "_engkau pengisi hati dengarkan ini alasanku untuk menunggu dirimu tak seorang pun yang mampu menggantikanmu_" itulah cuplikan dari lirik lagu Aether - Pengisi Hati.

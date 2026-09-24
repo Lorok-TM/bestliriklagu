@@ -1,10 +1,14 @@
 ---
-title: "Adinah Cretah - Selvi Ayunda"
-date: 2024-07-13
-categories: 
-  - "madura"
+author: Admin
+pubDatetime: 2024-07-13
+title: Adinah Cretah - Selvi Ayunda
+slug: adinah-cretah-selvi-ayunda
+featured: false
+draft: false
+tags:
+- madura
+description: Postingan ngenani Adinah Cretah - Selvi Ayunda.
 ---
-
 **Berikut lirik Adinah Cretah yang dinyanyikan oleh Selvi Ayunda.**
 
 dhika adiggel dunnyah dhika adiggel dunnyah

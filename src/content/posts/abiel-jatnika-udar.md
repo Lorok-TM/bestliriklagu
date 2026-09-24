@@ -1,10 +1,14 @@
 ---
-title: "Abiel Jatnika - Udar"
-date: 2025-11-10
-categories: 
-  - "sunda"
+author: Admin
+pubDatetime: 2025-11-10
+title: Abiel Jatnika - Udar
+slug: abiel-jatnika-udar
+featured: false
+draft: false
+tags:
+- sunda
+description: Postingan ngenani Abiel Jatnika - Udar.
 ---
-
 Jangji pasini anu bihari Pasang subaya anu tiheula Naha ayeuna asihna bet udar Kunaon jep aya naon
 
 Saupami tetep teras kembang Jadi emutan ka diri akang Horeng salira atos teu suka Naha naon margina

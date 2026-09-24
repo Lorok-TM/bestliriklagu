@@ -1,10 +1,14 @@
 ---
-title: "Agustriani - Kasayang Sampai Hentang Tulang"
-date: 2026-09-18
-categories: 
-  - "dayak"
+author: Admin
+pubDatetime: 2026-09-18
+title: Agustriani - Kasayang Sampai Hentang Tulang
+slug: agustriani-kasayang-sampai-hentang-tulang
+featured: false
+draft: false
+tags:
+- dayak
+description: Postingan ngenani Agustriani - Kasayang Sampai Hentang Tulang.
 ---
-
 Aku atun umba maunya kaka Hinje belum aluh melai desa Haranan angat kahain cinta Akan ku jalani dengan ikhlas reda
 
 Aluh huma itah sederhana Belum melai hong gubuk derita Susah sanang itah sama sama Asal atei kuh sanang bahagia

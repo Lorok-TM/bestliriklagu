@@ -1,10 +1,14 @@
 ---
-title: "Abay - Timur Basobok Minang"
-date: 2025-09-01
-categories: 
-  - "minang"
+author: Admin
+pubDatetime: 2025-09-01
+title: Abay - Timur Basobok Minang
+slug: abay-timur-basobok-minang
+featured: false
+draft: false
+tags:
+- minang
+description: Postingan ngenani Abay - Timur Basobok Minang.
 ---
-
 Nampak sakileh kami yo lugu-lugu Tapi sadonyo kami ko suhu-suhu Bintang film sampai ka pengarang lagu Ooo nyong timur dari dulu pasti tau
 
 Cubo pulo danga laguko nyong timur Kini giliran rang minang bacurito Jikok di sinan sinyal bisa di atur Salah gadang ndak tau gagah kamiko

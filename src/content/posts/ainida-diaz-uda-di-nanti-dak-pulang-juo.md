@@ -1,10 +1,14 @@
 ---
-title: "Ainida Diaz - Uda Di Nanti Dak Pulang Juo"
-date: 2025-09-02
-categories: 
-  - "minang"
+author: Admin
+pubDatetime: 2025-09-02
+title: Ainida Diaz - Uda Di Nanti Dak Pulang Juo
+slug: ainida-diaz-uda-di-nanti-dak-pulang-juo
+featured: false
+draft: false
+tags:
+- minang
+description: Postingan ngenani Ainida Diaz - Uda Di Nanti Dak Pulang Juo.
 ---
-
 Ditampi bareh ditampi Ditampi ba dadak juo Dinanti uda dinanti Tapi indak pulang juo
 
 Uda marantau lamo bana indak ado kaba Mambuek denai indak saba manunggu uda Usah uda baulah mambuek hati susah Panek denai mananti nyo Denai cari pangganti nyo Baru uda manyasa aa aa

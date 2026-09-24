@@ -1,10 +1,14 @@
 ---
-title: "Ajeng Febria - Aksara"
-date: 2025-12-04
-categories: 
-  - "java"
+author: Admin
+pubDatetime: 2025-12-04
+title: Ajeng Febria - Aksara
+slug: ajeng-febria-aksara
+featured: false
+draft: false
+tags:
+- java
+description: Postingan ngenani Ajeng Febria - Aksara.
 ---
-
 Sayang S e opo ? Selawase yo mung kowe Kowe K ne opo ? Kowe sing paling tak tresno
 
 Umume menungso Ditakdirne pepasangan Di jogo ojo nganti kelaran

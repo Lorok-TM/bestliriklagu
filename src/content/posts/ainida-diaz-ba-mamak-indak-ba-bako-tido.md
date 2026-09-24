@@ -1,10 +1,14 @@
 ---
-title: "Ainida Diaz - Ba Mamak Indak Ba Bako Tido"
-date: 2025-08-14
-categories: 
-  - "minang"
+author: Admin
+pubDatetime: 2025-08-14
+title: Ainida Diaz - Ba Mamak Indak Ba Bako Tido
+slug: ainida-diaz-ba-mamak-indak-ba-bako-tido
+featured: false
+draft: false
+tags:
+- minang
+description: Postingan ngenani Ainida Diaz - Ba Mamak Indak Ba Bako Tido.
 ---
-
 Alah denai tau nan jo garak Kilek baliuang alah ka kaki Mangkonyo denai pai manjarak Dari pado denai manahan hati
 
 Samanjak denai pai dari rumah Denai langkahkan kaki dak tantu arah Raso manampuah di rimbo rayo Dak ado urang nan maraso ibo

@@ -1,10 +1,14 @@
 ---
-title: "Afoda Trio - Fa'omasi Lö Lua Lua"
-date: 2025-05-10
-categories: 
-  - "nias"
+author: Admin
+pubDatetime: 2025-05-10
+title: Afoda Trio - Fa'omasi Lö Lua Lua
+slug: afoda-trio-faomasi-lo-lua-lua
+featured: false
+draft: false
+tags:
+- nias
+description: Postingan ngenani Afoda Trio - Fa'omasi Lö Lua Lua.
 ---
-
 Heha sambuali memofanö Enaö sowa owua wua dödö Lö khöu fangona famakhölö Lö badödöu ndra'o no ötayaigö
 
 Meno ösöndra khöu zisökhi So ana'a niha sebua okhöta Alai khönia wahuwusada Fa'omasiu khögu lö lua lua

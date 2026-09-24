@@ -1,10 +1,14 @@
 ---
-title: "Ajeng Febria - Cinta Merah Jambu"
-date: 2025-07-17
-categories: 
-  - "dangdut"
+author: Admin
+pubDatetime: 2025-07-17
+title: Ajeng Febria - Cinta Merah Jambu
+slug: ajeng-febria-cinta-merah-jambu
+featured: false
+draft: false
+tags:
+- dangdut
+description: Postingan ngenani Ajeng Febria - Cinta Merah Jambu.
 ---
-
 Cintaku hanya kamu Cinta merah, merah jambu Rinduku hanya kamu Rindu hangat, hangat kuku
 
 Cintaku hanya kamu ah Cinta merah, merah jambu Rinduku hanya kamu ah Rindu hangat, hangat kuku

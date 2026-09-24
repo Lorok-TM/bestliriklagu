@@ -1,10 +1,14 @@
 ---
-title: "Ajeng Febria Feat Brodin - Gulu Pedot"
-date: 2026-08-20
-categories: 
-  - "dangdut"
+author: Admin
+pubDatetime: 2026-08-20
+title: Ajeng Febria Feat Brodin - Gulu Pedot
+slug: ajeng-febria-feat-brodin-gulu-pedot
+featured: false
+draft: false
+tags:
+- dangdut
+description: Postingan ngenani Ajeng Febria Feat Brodin - Gulu Pedot.
 ---
-
 Dudu watu hang d arani pasir Watu kambang keli ono ring pinggir Buru ketemu awak langsung naksir Gelibegan koyo kelangan pikir
 
 Uwit kelopo arane gelugu D sigari d poro dadi pitu Saben dino isun sing biso turu Demen riko ngomong using kewetu

@@ -1,10 +1,14 @@
 ---
-title: "08 - Angga Dermawan"
-date: 2025-03-07
-categories: 
-  - "timur"
+author: Admin
+pubDatetime: 2025-03-07
+title: 08 - Angga Dermawan
+slug: 08-angga-dermawan
+featured: false
+draft: false
+tags:
+- timur
+description: Postingan ngenani 08 - Angga Dermawan.
 ---
-
 **BESTLIRIKLAGU.COM** - Berikut adalah paparan mengenai lirik Kosong 8 yang dibawakan oleh Angga Dermawan.
 
 Yang manis manis tolong jang bikin candu Itu yang manis sapa pe anak itu Hey jang pele yang baju putih sapa punya Mau main mata tapi tako orang punya

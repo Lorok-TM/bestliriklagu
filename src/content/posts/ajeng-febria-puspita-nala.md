@@ -1,10 +1,14 @@
 ---
-title: "Ajeng Febria - Puspita Nala"
-date: 2025-12-06
-categories: 
-  - "java"
+author: Admin
+pubDatetime: 2025-12-06
+title: Ajeng Febria - Puspita Nala
+slug: ajeng-febria-puspita-nala
+featured: false
+draft: false
+tags:
+- java
+description: Postingan ngenani Ajeng Febria - Puspita Nala.
 ---
-
 Wanodyo ayu utomo Ngambar arum ing kusumo Mulat leng leng brangta Agawe sengseming nala
 
 Esemu lir pait madu Lindri lindri nyawang netramu Dasar lencir kuning Anggugah rasa tresnaku

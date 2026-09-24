@@ -1,11 +1,14 @@
 ---
-title: "Aan Anisa - Bli Maning Maning"
-date: 2025-09-01
-featured: true
-categories: 
-  - "tarling"
+author: Admin
+pubDatetime: 2025-09-01
+title: Aan Anisa - Bli Maning Maning
+slug: aan-anisa-bli-maning-maning
+featured: false
+draft: false
+tags:
+- tarling
+description: Postingan ngenani Aan Anisa - Bli Maning Maning.
 ---
-
 Kaya langka wong lanang maning Demen sampe lara gering Wis cukup sun bli maning maning Due cinta ora sebanding
 
 Episode demeni Wis nemu titik akhir Wis cukup nangisi Sing dudu takdir

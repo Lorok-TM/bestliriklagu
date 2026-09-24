@@ -1,10 +1,14 @@
 ---
-title: "Ajeng Febria - Roro Jonggrang feat Jithul"
-date: 2022-03-14
-categories: 
-  - "tayub"
+author: Admin
+pubDatetime: 2022-03-14
+title: Ajeng Febria - Roro Jonggrang feat Jithul
+slug: ajeng-febria-roro-jonggrang-feat-jithul
+featured: false
+draft: false
+tags:
+- tayub
+description: Postingan ngenani Ajeng Febria - Roro Jonggrang feat Jithul.
 ---
-
 ## Lirik Lagu Tayub “Roro Jonggrang” by Ajeng Febria ft Jithul Sumarji
 
 > Roro jonggrang pancen kowe ayu tenan Ora mokal yen aku nandang kasmaran Waspadakno prajuritmu kalah perang Mulo kowe dadi wanito boyongan

@@ -1,10 +1,14 @@
 ---
-title: "Adistia - Nan Disayang Manyakiti"
-date: 2025-06-19
-categories: 
-  - "minang"
+author: Admin
+pubDatetime: 2025-06-19
+title: Adistia - Nan Disayang Manyakiti
+slug: adistia-nan-disayang-manyakiti
+featured: false
+draft: false
+tags:
+- minang
+description: Postingan ngenani Adistia - Nan Disayang Manyakiti.
 ---
-
 Lai sasuai pintak nan di hati Harok sabimbiang jo uda Ka palaminan Kironyo denai alah malapeh hao Lah bajadi sajo uda jo urang
 
 Indak di sangko nyato nan tasuo Ramuak taraso bathin ko Dek manangguangkan Tapaso kini denai mauruik dado Pado di pikia pikiakan bana Mambuek hati ko tak tanang

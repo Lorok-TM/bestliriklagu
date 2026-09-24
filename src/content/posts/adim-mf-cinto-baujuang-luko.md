@@ -1,10 +1,14 @@
 ---
-title: "Adim MF - Cinto Baujuang Luko"
-date: 2023-03-27
-categories: 
-  - "minang"
+author: Admin
+pubDatetime: 2023-03-27
+title: Adim MF - Cinto Baujuang Luko
+slug: adim-mf-cinto-baujuang-luko
+featured: false
+draft: false
+tags:
+- minang
+description: Postingan ngenani Adim MF - Cinto Baujuang Luko.
 ---
-
 Lirik Lagu Minang dengan judul Cinto Baujuang Luko yang dinyanyikan dan diciptakan oleh Adim MF dengan irama musik Pop.
 
 "_cinto nan di dasari dek harato baujuang luko nan katibo_" itulah cuplikan dari lirik lagu Adim MF - Cinto Baujuang Luko.

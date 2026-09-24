@@ -1,10 +1,14 @@
 ---
-title: "Ajeng Febria - Bojo Galak"
-date: 2026-09-11
-categories: 
-  - "dangdut"
+author: Admin
+pubDatetime: 2026-09-11
+title: Ajeng Febria - Bojo Galak
+slug: ajeng-febria-bojo-galak
+featured: false
+draft: false
+tags:
+- dangdut
+description: Postingan ngenani Ajeng Febria - Bojo Galak.
 ---
-
 Wis nasibe kudu koyo ngene Nduwe bojo kok ra tahu ngapenake Seneng muring omongane sengak Kudu tak trimo bojoku pancen galak
 
 Saben dino rasane ora karuan Ngerasake bojoku sing ra tahu perhatian Nanging piye maneh atiku wes kadung tresno Senajan batinku ngempet ono njero dodo

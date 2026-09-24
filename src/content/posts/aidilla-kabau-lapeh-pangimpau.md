@@ -1,10 +1,14 @@
 ---
-title: "Aidilla - Kabau Lapeh Pangimpau"
-date: 2026-09-04
-categories: 
-  - "minang"
+author: Admin
+pubDatetime: 2026-09-04
+title: Aidilla - Kabau Lapeh Pangimpau
+slug: aidilla-kabau-lapeh-pangimpau
+featured: false
+draft: false
+tags:
+- minang
+description: Postingan ngenani Aidilla - Kabau Lapeh Pangimpau.
 ---
-
 Dek ulah pandai cadiak talampau Tampek batenggang di paratue juo Candolah kabau lapeh pangimpau Cayia pamatang di lalunyo Candolah kabau lapeh pangimpau Cayia pamatang di lalunyo
 
 Antah dek pandang ka langik-langik Samo lah rato nan di bueknyo Bahonjak sanang di urang sakik Indak mangana upek katibo Bahonjak sanang diurang sakik Indak mangana upek katibo

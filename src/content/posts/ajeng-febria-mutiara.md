@@ -1,10 +1,14 @@
 ---
-title: "Ajeng Febria - Mutiara"
-date: 2026-07-02
-categories: 
-  - "dangdut"
+author: Admin
+pubDatetime: 2026-07-02
+title: Ajeng Febria - Mutiara
+slug: ajeng-febria-mutiara
+featured: false
+draft: false
+tags:
+- dangdut
+description: Postingan ngenani Ajeng Febria - Mutiara.
 ---
-
 Engkaukah mutiara itu Rela kuselami di laut biru Tingkahmu bagai purnama Paras bertaburkan cahaya
 
 Mantra apakah yang kau berikan Sehingga bayangmu menghantui Selalu terbayang angan Di setiap mimpi malam Selalu terbayang angan Menjadi igauan

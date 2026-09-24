@@ -1,10 +1,14 @@
 ---
-title: "Adrian Khalif - 2001x"
-date: 2026-06-23
-categories: 
-  - "indonesia"
+author: Admin
+pubDatetime: 2026-06-23
+title: Adrian Khalif - 2001x
+slug: adrian-khalif-2001x
+featured: false
+draft: false
+tags:
+- indonesia
+description: Postingan ngenani Adrian Khalif - 2001x.
 ---
-
 Mengapa sepi tanpa kau di sini Tapi tiap bertemu naik darahku lagi Se menit menyenangkan se menit menyebalkan Katanya ini yang namanya cinta
 
 Sebenci-benci hati ini Tapi tak ada orang lain Paling kusayang satu bumi

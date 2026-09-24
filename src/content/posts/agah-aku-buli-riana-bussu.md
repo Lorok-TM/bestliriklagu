@@ -1,10 +1,14 @@
 ---
-title: "Agah Aku Buli - Riana Bussu"
-date: 2025-04-13
-categories: 
-  - "dayak"
+author: Admin
+pubDatetime: 2025-04-13
+title: Agah Aku Buli - Riana Bussu
+slug: agah-aku-buli-riana-bussu
+featured: false
+draft: false
+tags:
+- dayak
+description: Postingan ngenani Agah Aku Buli - Riana Bussu.
 ---
-
 Bawi kueh sanggup Belum hinje denga Amun cara manganu kapehen atei
 
 Kute kea ikau manampa aku kacewa Kana auh tanjaru Puna manjadi tutu

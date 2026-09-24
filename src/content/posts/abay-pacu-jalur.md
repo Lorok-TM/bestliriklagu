@@ -1,10 +1,14 @@
 ---
-title: "Abay - Pacu Jalur"
-date: 2025-08-10
-categories: 
-  - "minang"
+author: Admin
+pubDatetime: 2025-08-10
+title: Abay - Pacu Jalur
+slug: abay-pacu-jalur
+featured: false
+draft: false
+tags:
+- minang
+description: Postingan ngenani Abay - Pacu Jalur.
 ---
-
 Pacu jalur sakali setahun datang Lomba dayuang parahu panjang Di sungai batang kuantan Nan di adokan.....
 
 Sabana rami indak tamuek dek urang Babondong bondong nan datang Mancaliak lomba parahu panjang Kuantan singingi....

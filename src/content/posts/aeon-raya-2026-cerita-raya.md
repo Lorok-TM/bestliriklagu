@@ -1,10 +1,14 @@
 ---
-title: "AEON Raya 2026 - Cerita Raya"
-date: 2026-03-19
-categories: 
-  - "religi"
+author: Admin
+pubDatetime: 2026-03-19
+title: AEON Raya 2026 - Cerita Raya
+slug: aeon-raya-2026-cerita-raya
+featured: false
+draft: false
+tags:
+- religi
+description: Postingan ngenani AEON Raya 2026 - Cerita Raya.
 ---
-
 (Verse 1) Dulu naik bas, balik kampung jauh, Tidur bersesak, tapi hati penuh, Mak masak rendang, bau harum semerbak, Abah senyum, rindu terubat.
 
 (Pre-Chorus) Kini cepat masa berlalu, Tapi rasa tetap yang dulu, Riuh sekampung, gelak tamu, Cerita lama, rasa baru

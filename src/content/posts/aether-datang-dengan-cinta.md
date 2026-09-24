@@ -1,10 +1,14 @@
 ---
-title: "Aether - Datang Dengan Cinta"
-date: 2023-07-12
-categories: 
-  - "indonesia"
+author: Admin
+pubDatetime: 2023-07-12
+title: Aether - Datang Dengan Cinta
+slug: aether-datang-dengan-cinta
+featured: false
+draft: false
+tags:
+- indonesia
+description: Postingan ngenani Aether - Datang Dengan Cinta.
 ---
-
 Lirik Lagu Indo dengan judul Datang Dengan Cinta yang dinyanyikan oleh Aether dan diciptakan oleh Ipoet, Capoenk dengan irama musik Pop.
 
 "_cukup sudah jangan bicara tatap mataku dengan cinta jangan lagi menangis karena luka dihatiku masih ada kamu_" itulah cuplikan dari lirik lagu Datang Dengan Cinta - Aether.

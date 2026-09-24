@@ -1,10 +1,14 @@
 ---
-title: "Aefa Miga - Fajar Halawa"
-date: 2025-10-19
-categories: 
-  - "nias"
+author: Admin
+pubDatetime: 2025-10-19
+title: Aefa Miga - Fajar Halawa
+slug: aefa-miga-fajar-halawa
+featured: false
+draft: false
+tags:
+- nias
+description: Postingan ngenani Aefa Miga - Fajar Halawa.
 ---
-
 Awai zanondra ana'a ba firo Me'ofaehago khogu nosi dodo Oroi khogu kodau sisagoro Oroi laeduru fanoro todo
 
 Lo'ara tedou mbawa inoto Amuatau khogu nofabo'o O'ohe fonagu niha bo'o Ono matua sino tehongo

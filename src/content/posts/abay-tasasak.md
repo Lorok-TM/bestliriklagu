@@ -1,10 +1,14 @@
 ---
-title: "Abay - Tasasak"
-date: 2025-07-22
-categories: 
-  - "minang"
+author: Admin
+pubDatetime: 2025-07-22
+title: Abay - Tasasak
+slug: abay-tasasak
+featured: false
+draft: false
+tags:
+- minang
+description: Postingan ngenani Abay - Tasasak.
 ---
-
 Oi etek sabalah dulu Denai ko baru kagadang Kok amuah etek manunggu Den karek sayok jan tabang...
 
 Bukan denai yo denai indak katuju Ka anak etek denai yo lai suko Tapi kok etek tasasak baminantu Indak kadenai etek mahadokannyo

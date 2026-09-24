@@ -1,10 +1,14 @@
 ---
-title: "Ajeng Febria - Ngamen 2"
-date: 2026-07-07
-categories: 
-  - "java"
+author: Admin
+pubDatetime: 2026-07-07
+title: Ajeng Febria - Ngamen 2
+slug: ajeng-febria-ngamen-2
+featured: false
+draft: false
+tags:
+- java
+description: Postingan ngenani Ajeng Febria - Ngamen 2.
 ---
-
 ![Ajeng Febria - Ngamen 2](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi9hygHnW7ZZ7esvpkLgBp1QueapvPniUOPlEsyUkQaKahyphenhyphensfnXW_DrsjZmGfefMU_4_MBSdBkSlCXVoxsEsHj0sT9osiJNKmQqXJyQKi46hzJ0kW8gs8KujCBfnyLbMlDL236Zsll0RoJkF1KZQUI2_1kzQeQWTR6_qtTsV52fQ9nYfqpIn4IZEaTADi5_/s1280/ajeng-febria-ngamen-2.webp)
 
 Mak iki anakmu prawan Wiwit mbiyen ono ing perantauan Iling ngiwangi neng kantin sekolahan Telung sasi mak aku urung bayaran Mak dongamu mandhi tenan diijabahi marang gusti pengeran

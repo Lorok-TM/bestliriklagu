@@ -1,10 +1,14 @@
 ---
-title: "Abinaya - Rindu"
-date: 2025-11-19
-categories: 
-  - "sunda"
+author: Admin
+pubDatetime: 2025-11-19
+title: Abinaya - Rindu
+slug: abinaya-rindu
+featured: false
+draft: false
+tags:
+- sunda
+description: Postingan ngenani Abinaya - Rindu.
 ---
-
 Kedah ka mana Kedah ka saha Nitipkeun ieu kacinta Kasalira nu jauh di mana Anjeun ngadu ka dimana
 
 Rindu Ieu hate meni rindu Rindu Nu susah dipapalerkeun

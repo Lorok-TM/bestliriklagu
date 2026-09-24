@@ -1,10 +1,14 @@
 ---
-title: "Ajeng Febria - Kari Cerito"
-date: 2026-07-05
-categories: 
-  - "osing"
+author: Admin
+pubDatetime: 2026-07-05
+title: Ajeng Febria - Kari Cerito
+slug: ajeng-febria-kari-cerito
+featured: false
+draft: false
+tags:
+- osing
+description: Postingan ngenani Ajeng Febria - Kari Cerito.
 ---
-
 ![Ajeng Febria - Kari Cerito](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhxE32lygI2BVSATHGqEBXaU2tmWdWSbRt6z0Te5XzpFTkYx0znJQYvQwz3mmloQDleZrBj3opO4jYlnDlRLAq4pUjB9sJNEwitcINNaNv43tt7Q_G-Dgy2hEeV0fJhj6j8PmdQQeJk8xFoRFm82Y3zUllt1baeTsocjSE2yiCpBzHhFJnJwe9DiFFPvgXT/s1280/ajeng-febria-kari-cerito.webp)
 
 Kahanan hang koyo iki Riko sing biso nerimo Abote gudo nyekso batin rogo Riko mutusno ninggalno

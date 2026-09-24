@@ -1,10 +1,14 @@
 ---
-title: "Aduh Sayang - Fira Azzahra Adella"
-date: 2025-02-27
-categories: 
-  - "dangdut"
+author: Admin
+pubDatetime: 2025-02-27
+title: Aduh Sayang - Fira Azzahra Adella
+slug: aduh-sayang-fira-azzahra-adella
+featured: false
+draft: false
+tags:
+- dangdut
+description: Postingan ngenani Aduh Sayang - Fira Azzahra Adella.
 ---
-
 **BESTLIRIKLAGU.COM** - Berikut adalah paparan mengenai lirik Aduh Sayang yang dibawakan oleh Fira Azzahra Adella.
 
 Dari omong mu cuma omong mu Kata janjimu penghapus rasa keraguanku Kata sumpahmu penghapus rasa bimbangku

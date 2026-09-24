@@ -1,10 +1,14 @@
 ---
-title: "Ajeng Febria - Hujan"
-date: 2026-07-22
-categories: 
-  - "dangdut"
+author: Admin
+pubDatetime: 2026-07-22
+title: Ajeng Febria - Hujan
+slug: ajeng-febria-hujan
+featured: false
+draft: false
+tags:
+- dangdut
+description: Postingan ngenani Ajeng Febria - Hujan.
 ---
-
 Hujan hujan datang lagi Hujan hujan malam ini Bintang bintang tiada lagi Bulan pun merundung sedih
 
 Hatiku resah resah resah Menanti cinta Hidupku jera jera jera Hujan tak reda

@@ -1,10 +1,14 @@
 ---
-title: "Aditya - Rintang Bakawan Jo Bausaho feat. Tata Talita"
-date: 2025-09-13
-categories: 
-  - "minang"
+author: Admin
+pubDatetime: 2025-09-13
+title: Aditya - Rintang Bakawan Jo Bausaho feat. Tata Talita
+slug: aditya-rintang-bakawan-jo-bausaho-feat-tata-talita
+featured: false
+draft: false
+tags:
+- minang
+description: Postingan ngenani Aditya - Rintang Bakawan Jo Bausaho feat. Tata Talita.
 ---
-
 Indak gabak indak guruah Patuih badantang sakutiko Hujan labek mandaro jatuah Basalah kito bapayuang tido
 
 Nyampang bataduah galangang urang Rumah gadang paga bakunci Pintak di taguah bisa nyo badan Untuang kok lai timbuah si mato hari

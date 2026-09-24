@@ -1,10 +1,14 @@
 ---
-title: "Ajari Aku Membencimu - Elsa Pitaloka"
-date: 2025-03-12
-categories: 
-  - "slow-rock"
+author: Admin
+pubDatetime: 2025-03-12
+title: Ajari Aku Membencimu - Elsa Pitaloka
+slug: ajari-aku-membencimu-elsa-pitaloka
+featured: false
+draft: false
+tags:
+- slow-rock
+description: Postingan ngenani Ajari Aku Membencimu - Elsa Pitaloka.
 ---
-
 Telah kucoba untuk mengerti Tapi kau terus sakiti Hatiku lagi
 
 Aku tak tahu apa yang salahku Hingga kau bisa begini Khianati aku

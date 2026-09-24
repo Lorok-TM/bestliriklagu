@@ -1,10 +1,14 @@
 ---
-title: "Abot Rekoso - Dini Kurnia"
-date: 2024-09-05
-categories: 
-  - "java"
+author: Admin
+pubDatetime: 2024-09-05
+title: Abot Rekoso - Dini Kurnia
+slug: abot-rekoso-dini-kurnia
+featured: false
+draft: false
+tags:
+- java
+description: Postingan ngenani Abot Rekoso - Dini Kurnia.
 ---
-
 Kesel awakku nong saben wengi Mupoyo kerjo kanggo dirimu Tak tutup tutupi ben we ra ngerti Mok satru wae aku mung nrimani
 
 Panase serngenge dadi saksi Kerjo opo wae tak lakoni Sing perduli loro tak tahan tahan Penting balek aku nggowo penghasilan

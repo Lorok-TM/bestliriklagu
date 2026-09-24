@@ -1,10 +1,14 @@
 ---
-title: "Abay - Gadang Di Rantau"
-date: 2025-08-24
-categories: 
-  - "minang"
+author: Admin
+pubDatetime: 2025-08-24
+title: Abay - Gadang Di Rantau
+slug: abay-gadang-di-rantau
+featured: false
+draft: false
+tags:
+- minang
+description: Postingan ngenani Abay - Gadang Di Rantau.
 ---
-
 Nan marunduak padi Nan malaua batuang Dianjuang bana Tak mintak tinggih
 
 Kok ado salah lidah nan patah Namun di hati takkan barubah Kok ado salah lidah nan patah Namun di hati takkan barubah

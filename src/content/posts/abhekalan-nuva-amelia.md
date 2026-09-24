@@ -1,10 +1,14 @@
 ---
-title: "Abhekalan - Nuva Amelia"
-date: 2024-08-02
-categories: 
-  - "madura"
+author: Admin
+pubDatetime: 2024-08-02
+title: Abhekalan - Nuva Amelia
+slug: abhekalan-nuva-amelia
+featured: false
+draft: false
+tags:
+- madura
+description: Postingan ngenani Abhekalan - Nuva Amelia.
 ---
-
 Ateh cek sennengah Lambek ghik pacarrah Mangken buleh dheddhih bhekallah
 
 Mugheh se kobesah Bisa matekka'ah Duh sampek depak akad nikah

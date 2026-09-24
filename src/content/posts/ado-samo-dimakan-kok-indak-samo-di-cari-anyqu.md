@@ -1,10 +1,14 @@
 ---
-title: "Ado Samo Dimakan Kok Indak Samo Di Cari - Anyqu"
-date: 2025-02-11
-categories: 
-  - "minang"
+author: Admin
+pubDatetime: 2025-02-11
+title: Ado Samo Dimakan Kok Indak Samo Di Cari - Anyqu
+slug: ado-samo-dimakan-kok-indak-samo-di-cari-anyqu
+featured: false
+draft: false
+tags:
+- minang
+description: Postingan ngenani Ado Samo Dimakan Kok Indak Samo Di Cari - Anyqu.
 ---
-
 **BESTLIRIKLAGU.COM** - Berikut adalah paparan mengenai lirik Ado Samo Dimakan Kok Indak Samo Dicari yang dibawakan oleh Anyqu.
 
 Langang langang hati denai ko Rindu taragak jo uda nan dulu Kini lah hilang maso nan lalu Dek udah rintang lasak bakarajo Denai balengahkan sajo

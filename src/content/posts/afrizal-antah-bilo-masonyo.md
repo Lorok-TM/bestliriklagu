@@ -1,10 +1,14 @@
 ---
-title: "Afrizal - Antah Bilo Masonyo"
-date: 2025-08-02
-categories: 
-  - "minang"
+author: Admin
+pubDatetime: 2025-08-02
+title: Afrizal - Antah Bilo Masonyo
+slug: afrizal-antah-bilo-masonyo
+featured: false
+draft: false
+tags:
+- minang
+description: Postingan ngenani Afrizal - Antah Bilo Masonyo.
 ---
-
 Salah apo diriko Sahinggo adiak barubah Tinggakan luko di hati nanko Sagalonyo alah denai barikan Masih kok kurang ndeh adiak sayang
 
 Sampai hati bana adiak malupoi Kasiah jo sayang alah den curahkan Ruponyo cinto hanyo di denai Malang malang denai bacinto

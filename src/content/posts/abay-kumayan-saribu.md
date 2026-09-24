@@ -1,10 +1,14 @@
 ---
-title: "Abay - Kumayan Saribu"
-date: 2026-01-12
-categories: 
-  - "minang"
+author: Admin
+pubDatetime: 2026-01-12
+title: Abay - Kumayan Saribu
+slug: abay-kumayan-saribu
+featured: false
+draft: false
+tags:
+- minang
+description: Postingan ngenani Abay - Kumayan Saribu.
 ---
-
 Jan lah talonsong bana muluik adiak ka ambo Jikok kareh ka indak tulak lah elok Denai ndak ka mamaso diriko dicintoi Denai ndak ka managah adiak jo urang lain
 
 Kok indak ditarimo iyo ka di pangakan Muluik nan lah talonsong payah den mamaafkan Lah cabiak cabiak bana hati denai di dalam Jo kumayan saribu pasti denai balehkan
