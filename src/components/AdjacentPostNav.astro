@@ -1,37 +1,33 @@
 ---
-import IconArrowLeft from "@/assets/icons/IconArrowLeft.svg";
-import IconArrowRight from "@/assets/icons/IconArrowRight.svg";
-import { getPostUrl } from "@/utils/getPostPaths";
-import { useTranslations } from "@/i18n";
 import config from "@/config";
 
-type AdjacentPost = {
-  id: string;
-  title: string;
-  filePath: string | undefined;
-} | null;
-
 type Props = {
-  prevPost: AdjacentPost;
-  nextPost: AdjacentPost;
+  prevPost: any;
+  nextPost: any;
 };
 
 const { prevPost, nextPost } = Astro.props;
-const locale = Astro.currentLocale ?? config.site.lang;
-const t = useTranslations(locale);
+
+// Fungsi pembantu untuk memotong ekstensi berkas (.md / .mdx) agar menghasilkan slug bersih
+const formatSlug = (postId: string) => {
+  if (!postId) return "";
+  return postId.substring(0, postId.lastIndexOf('.')) || postId;
+};
 ---
 
 <div class="navigation">
-{prevPost && (
-<a href={getPostUrl(prevPost.id, prevPost.filePath, locale)} class="prev">
-<span>Prev «</span>
-<div>{prevPost.title}</div>
-</a>
-)}
-{nextPost && (
-<a href={getPostUrl(nextPost.id, nextPost.filePath, locale)} class="next">
-<span>» Next</span>
-<div>{nextPost.title}</div>
-</a>
-)}
+  {prevPost && (
+    /* AMAN: Tautan langsung menembak tepat di belakang domain tanpa /posts/ */
+    <a href={`/${formatSlug(prevPost.id)}/`} class="prev">
+      <span>Prev «</span>
+      <div>{prevPost.title}</div>
+    </a>
+  )}
+  {nextPost && (
+    /* AMAN: Tautan langsung menembak tepat di belakang domain tanpa /posts/ */
+    <a href={`/${formatSlug(nextPost.id)}/`} class="next">
+      <span>» Next</span>
+      <div>{nextPost.title}</div>
+    </a>
+  )}
 </div>
