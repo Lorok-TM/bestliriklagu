@@ -3,7 +3,11 @@ import { getRelativeLocaleUrl } from "astro:i18n";
 import { stripBase, stripLocale } from "@/utils/withBase";
 import { useTranslations } from "@/i18n";
 import config from "@/config";
-import { slugifyStr } from "@/utils/slugify"; // Utilitas bawaan Astro Paper kanggo slug tag
+import { slugifyStr } from "@/utils/slugify";
+
+type Props = {
+  tags?: string[];
+};
 
 const locale = Astro.currentLocale ?? config.site.lang;
 const t = useTranslations(locale);
@@ -11,27 +15,33 @@ const t = useTranslations(locale);
 const pathWithoutBase = stripBase(Astro.url.pathname).replace(/\/+\$/, "");
 const currentUrlPath = stripLocale(pathWithoutBase, locale);
 
-// Goleki URL domain utama kanggo properti item/URL absolute
+// URL domain utama kanggo properti item/URL absolute
 const siteUrl = Astro.site ? Astro.site.origin : "https://domain-sampeyan.com";
 
 // Ngurai path dadi array segment
 let breadcrumbList = currentUrlPath.split("/").slice(1).filter(Boolean);
 
-// DETEKSI KONDISI SINGLE POST (src/pages/posts/[...slug]/index.astro)
-// Ciri utamane: segment pertamane yaiku 'posts' lan duwe slug/judul post ing segment kapindho, nanging dudu kaca pagination angka
-const isSinglePost = breadcrumbList[0] === "posts" && breadcrumbList[1] && isNaN(Number(breadcrumbList[1]));
-
-// Ambil props tags sing dikirim soko komponen bapa (yen ana)
+// Jupuk props tags saka komponen utama
 const { tags = [] } = Astro.props;
 
+// DETEKSI SINGLE POST: Yen URL diwiwiti 'posts' lan mburine dudu nomer pagination
+const isSinglePost = breadcrumbList[0] === "posts" && breadcrumbList[1] && isNaN(Number(breadcrumbList[1]));
+
+// Variabel kanggo nampilake teks lan slug tag ing single post
+let displayLabel = "Blog";
+
 if (isSinglePost) {
-  // Yen single post, breadcrumb dipeksa dadi: Home > [Tag Name Pertama]
-  // Yen postingan ora duwe tag, otomatis nggunakake fallback teks tag standar
-  const activeTag = tags.length > 0 ? tags[0] : "Blog";
-  breadcrumbList = [activeTag];
+  if (tags.length > 0) {
+    // Ngowahi "nama-tag" dadi "Nama Tag" kanggo tampilan label
+    displayLabel = tags[0].replace(/-/g, " ").replace(/\b\w/g, c => c.toUpperCase());
+    // Dipeksa mlebu dhaptar breadcrumb nganggo slug asline
+    breadcrumbList = [slugifyStr(tags[0])];
+  } else {
+    breadcrumbList = ["posts"]; // Fallback yen ora ana tag
+  }
 } else {
-  // Logika standar gawan Astro Paper kanggo kaca liyane
-  if (breadcrumbList[0] === "posts") {
+  // Logika standar gawan Astro Paper kanggo kaca liyane (Arsip, Kategori, lsp)
+  if (breadcrumbList[0] === "posts" && breadcrumbList[1]) {
     breadcrumbList.splice(
       0,
       2,
@@ -46,7 +56,7 @@ if (isSinglePost) {
       `${breadcrumbList[1]} ${
         Number(breadcrumbList[2]) === 1
           ? ""
-          : `(t.pagination.page.toLowerCase() {breadcrumbList[2]})`
+          : `(\({t.pagination.page.toLowerCase()}\){breadcrumbList[2]})`
       }`
     );
   }
@@ -67,29 +77,8 @@ const navLabels: Record<string, string> = {
   archives: t.nav.archives,
   search: t.nav.search,
 };
-
-
-
-
-
-type Props = {
-  tags?: string[];
-};
-
-// Jupuk segment URL saiki
-const segments = Astro.url.pathname.split("/").filter(Boolean);
-const isSinglePost = segments.length > 0 && !segments.includes("tags");
-
-// Logika ngganti isi breadcrumb posisi kapindho dadi tag
-let displayLabel = "Blog";
-let tagSlug = "";
-
-if (isSinglePost && tags.length > 0) {
-  displayLabel = tags[0].replace(/-/g, " ").replace(/\b\w/g, c => c.toUpperCase());
-  tagSlug = tags[0].toLowerCase().replace(/\s+/g, "-");
-}
-
 ---
+
 
 <nav class="breadcrumb" aria-label="breadcrumb" itemscope="itemscope" itemtype="https://schema.org/BreadcrumbList">
   <ul class="container">
