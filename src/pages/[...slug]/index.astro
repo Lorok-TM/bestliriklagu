@@ -10,20 +10,21 @@ import { getSortedPosts } from "@/utils/getSortedPosts";
 import { slugifyStr } from "@/utils/slugify";
 import config from "@/config";
 
-// 1. IMPORT DENGAN RELATIVE PATH (Karena foldernya satu tingkat, gunakan ./ agar rapi)
+// Impor komponen Navigasi lokal dengan jalur relatif yang bersih
 import AdjacentPostNav from "./_components/AdjacentPostNav.astro";
 
-// 2. FUNGSI GETSTATICPATHS (Tetap seperti logika Anda yang sudah benar)
+// 1. FUNGSI PENYEDIA RUTE OTOMATIS (getStaticPaths)
 export async function getStaticPaths() {
   const posts = await getCollection("posts");
   const sortedPosts = getSortedPosts(posts);
 
   return sortedPosts.map((post: any, index: number) => {
+    // Cari data artikel sebelum dan sesudahnya dari daftar terurut
     const prevPost = index > 0 ? sortedPosts[index - 1] : null;
     const nextPost = index < sortedPosts.length - 1 ? sortedPosts[index + 1] : null;
 
     return {
-      params: { slug: post.id.replace(/\.(md|mdx)$/, "") },
+      params: { slug: post.id.replace(/\.(md|mdx)\$/, "") },
       props: { 
         post, 
         prevPost,
@@ -33,14 +34,14 @@ export async function getStaticPaths() {
   });
 }
 
-// 3. DAFTARKAN SEMUA VARIABEL KE DALAM TYPE PROPS AGAR TYPESCRIPT SEHAT
+// 2. STRUKTUR PROTOKOL TYPE PROPS (Kunci Utama Penghilang Silang Merah)
 type Props = {
   post: CollectionEntry<"posts">;
-  prevPost: any; // Tambahkan ini agar tidak silang merah
-  nextPost: any; // Tambahkan ini agar tidak silang merah
+  prevPost: any;
+  nextPost: any;
 };
 
-// 4. AMBIL DATA DARI ASTRO.PROPS (Tanpa ada deklarasi 'null' ganda di atasnya)
+// Ambil hak akses properti yang dikirimkan oleh getStaticPaths()
 const { post, prevPost, nextPost } = Astro.props;
 
 const {
@@ -125,7 +126,8 @@ const featuredPosts = activePosts
           </div>
         )}
 
-<AdjacentPostNav prevPost={prevPost} nextPost={nextPost} />
+        {/* Pemanggilan komponen dengan data dinamis yang sudah tervalidasi aman */}
+        <AdjacentPostNav prevPost={prevPost} nextPost={nextPost} />
 
       </div>
 
