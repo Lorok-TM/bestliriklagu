@@ -19,13 +19,13 @@ const { prevPost, nextPost } = Astro.props as Props;
   {prevPost && prevPost.id && (
     <a href={`/${prevPost.id.substring(0, prevPost.id.lastIndexOf('.')) || prevPost.id}/`} class="prev">
       <span>Prev «</span>
-      <div>{prevPost.title}</div>
+      <div>Lirik Lagu {prevPost.title}</div>
     </a>
   )}
   {nextPost && nextPost.id && (
     <a href={`/${nextPost.id.substring(0, nextPost.id.lastIndexOf('.')) || nextPost.id}/`} class="next">
       <span>» Next</span>
-      <div>{nextPost.title}</div>
+      <div>Lirik Lagu {nextPost.title}</div>
     </a>
   )}
 </div>
