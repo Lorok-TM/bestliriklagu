@@ -1,21 +1,18 @@
-import { slugify as utilSlugify } from "transliteration";
+import kebabcase from "lodash.kebabcase";
+import slugify from "slugify";
 
-// Iki fungsi kanggo nggawe link URL tetep huruf cilik lan aman (slug)
-export const slugifyStr = (str: string) => utilSlugify(str);
+const hasNonLatin = (str: string): boolean => /[^\x00-\x7F]/.test(str);
 
-export const slugify = (tags: string[]) => {
-  return tags.map(tag => ({
-    name: tag, // Iki jeneng asli sing bakal dadi teks anchor
-    slug: utilSlugify(tag), // Iki sing dadi link URL (tetep huruf cilik)
-  }));
+/**
+ * Slugify a string using a hybrid approach:
+ * - Latin strings: slugify (e.g. "E2E Testing" → "e2e-testing")
+ * - Strings with non-Latin chars: lodash.kebabcase (preserves non-Latin chars)
+ */
+export const slugifyStr = (str: string): string => {
+  if (hasNonLatin(str)) {
+    return kebabcase(str);
+  }
+  return slugify(str, { lower: true });
 };
 
-// Fungsi tambahan kanggo nggawe teks dadi Huruf Gedhe ing awal kata (Title Case)
-export const capitalizeTag = (tag: string) => {
-  return tag
-    .split(" ")
-    .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
-    .join(" ");
-};
-
-export default slugify;
+export const slugifyAll = (arr: string[]) => arr.map(str => slugifyStr(str));
