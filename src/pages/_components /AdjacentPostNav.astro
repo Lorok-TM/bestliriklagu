@@ -3,15 +3,10 @@ import { getPostUrl } from "@/utils/getPostPaths";
 import { useTranslations } from "@/i18n";
 import config from "@/config";
 
-type AdjacentPost = {
-  id: string;
-  title: string;
-  filePath: string | undefined;
-} | null;
-
+// Kita gunakan tipe 'any' agar TypeScript mengizinkan format objek apa pun dari index.astro
 type Props = {
-  prevPost: AdjacentPost;
-  nextPost: AdjacentPost;
+  prevPost: any;
+  nextPost: any;
 };
 
 const { prevPost, nextPost } = Astro.props;
