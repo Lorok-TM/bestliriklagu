@@ -1,34 +1,27 @@
 ---
-export interface Props {
+import { getRelativeLocaleUrl } from "astro:i18n";
+import IconHash from "@/assets/icons/IconHash.svg";
+import config from "@/config";
+
+type Props = {
   tag: string;
+  tagName: string;
   size?: "sm" | "lg";
-}
+};
 
-const { tag, size = "sm" } = Astro.props;
+const { tag, tagName, size = "lg" } = Astro.props;
 
-const cleanTagName = tag
-  .replace(/-/g, " ") // ngilangke tanda strip dadi spasi
+const locale = Astro.currentLocale ?? config.site.lang;
+
+const cleanTagName = tagName
+  .replace(/-/g, " ") // ngilangke tanda strip dadi spasi yen ana
   .split(" ")
   .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
   .join(" ");
 ---
 
-<li class={`inline-block ${size === "sm" ? "my-1" : "my-3 mx-1"}`}>
-  <a
-    href={`/tags/${tag.toLowerCase()}/`}
-    class={`${
-      size === "sm" ? "text-sm pr-2 group" : "text-lg px-2 py-1 group"
-    } relative underline decoration-dashed hover:-top-0.5 focus-visible:p-1`}
-  >
-    <svg
-      xmlns="http://w3.org"
-      class={`${size === "sm" ? " scale-75" : "scale-100"} inline-block h-6 w-6 fill-skin-base opacity-80 group-hover:fill-skin-accent`}
-      aria-hidden="true"
-    >
-      <path d="M6.35 18.27h3.81l.73-3.23H7.08l-.24 1.07c-.12.5.18.99.68 1.1.08.02.16.03.24.03.04.01.07.03.11.03h-.03l-1.49 1h-.01zM11.62 15.04h3.81l.48-2.12h-3.81l-.48 2.12zm5.72-2.12H13.53l.48-2.12h3.81l-.48 2.12zm-4.76-2.12h-3.81l-.48 2.12h3.81l.48-2.12zM5.13 15.04h3.81l.48-2.12H5.13l-.48 2.12zm1.68-4.24H3l-.48 2.12h3.81l.48-2.12zm2.38-3.15L8.46 10.8h3.81l.73-3.23H9.19zm5.72-2.12H11.1l-.24 1.07c-.12.5.18.99.68 1.1.08.02.16.03.24.03.04.01.07.03.11.03h-.03l-1.49 1h-.01z" />
-    </svg>
-    &nbsp;<span>{cleanTagName}</span>
+<li>
+  <a href={getRelativeLocaleUrl(locale, `tags/${tag}/`)}>
+    {cleanTagName}
   </a>
 </li>
-
-
