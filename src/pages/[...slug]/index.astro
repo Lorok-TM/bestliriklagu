@@ -8,6 +8,7 @@ import Datetime from "@/components/Datetime.astro";
 import Tag from "@/components/Tag.astro";
 import { getSortedPosts } from "@/utils/getSortedPosts";
 import { slugifyStr } from "@/utils/slugify";
+import AdjacentPostNav from "./_components/AdjacentPostNav.astro";
 import config from "@/config";
 
 export async function getStaticPaths() {
@@ -110,6 +111,7 @@ const featuredPosts = activePosts
             </ul>
           </div>
         )}
+<AdjacentPostNav {prevPost} {nextPost} />
       </div>
 
       <div id="secondary" itemtype="https://schema.org" itemscope="itemscope">
