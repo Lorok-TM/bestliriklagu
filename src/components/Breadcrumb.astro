@@ -79,7 +79,6 @@ const navLabels: Record<string, string> = {
 };
 ---
 
-
 <nav class="breadcrumb" aria-label="breadcrumb" itemscope="itemscope" itemtype="https://schema.org/BreadcrumbList">
   <ul class="container">
     <li itemprop="itemListElement" itemscope="itemscope" itemtype="https://schema.org/ListItem">
@@ -92,31 +91,33 @@ const navLabels: Record<string, string> = {
     {
       breadcrumbList.map((breadcrumb, index) => {
         const isLast = index + 1 === breadcrumbList.length;
-        const position = index + 2; // Nomer urut 2, 3, dst
+        const position = index + 2;
         const label = navLabels[breadcrumb] ?? decodeSegment(breadcrumb);
 
-        // LOGIKA BARU KANGGO URL SING AKURAT LAN KOMPLIT
         let hrefUrl = "";
         if (isSinglePost) {
-          // Yen single post, langsung diarahke menyang tag-e
-          hrefUrl = `${siteUrl}/tags/${slugifyStr(breadcrumb)}/`;
+          hrefUrl = tags.length > 0 
+            ? `${siteUrl}${getRelativeLocaleUrl(locale, `tags/\${slugifyStr(tags[0])}/`)}`
+            : `${siteUrl}${getRelativeLocaleUrl(locale, "posts/")}`;
         } else {
-          // Kanggo halaman biasa/arsip tag: gabungke segment saka awal nganti posisi saiki
-          // contone: segment ke-1 dadi /tags, segment ke-2 dadi /tags/nama-tag
           const currentSegments = currentUrlPath.split("/").slice(1).filter(Boolean).slice(0, index + 1).join("/");
           hrefUrl = `${siteUrl}${getRelativeLocaleUrl(locale, currentSegments)}`;
-          
-          // Pastikake pungkasan URL nganggo slash (/) yen asline nganggo slash
           if (!hrefUrl.endsWith("/")) hrefUrl += "/";
         }
 
         return isLast ? (
           <li itemprop="itemListElement" itemscope="itemscope" itemtype="https://schema.org/ListItem">
-      {isSinglePost && tagSlug ? (
-        <a href={getRelativeLocaleUrl(locale, `tags/${tagSlug}/`)}>{displayLabel}</a>
+            {isSinglePost && tags.length > 0 ? (
+              <>
+                <a itemprop="item" href={hrefUrl}>
+                  <span itemprop="name">{displayLabel}</span>
+                </a>
+              </>
             ) : (
+              <>
                 <span itemprop="name" class="current-page">{label}</span>
                 <link itemprop="item" href={hrefUrl} />
+              </>
             )}
             <meta itemprop="position" content={position.toString()} />
           </li>
