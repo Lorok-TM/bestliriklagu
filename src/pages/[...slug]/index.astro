@@ -10,7 +10,6 @@ import { getSortedPosts } from "@/utils/getSortedPosts";
 import { slugifyStr } from "@/utils/slugify";
 import config from "@/config";
 
-// @ts-ignore
 import AdjacentPostNav from "../_components/AdjacentPostNav.astro";
 
 // 1. FUNGSI PENYEDIA RUTE OTOMATIS (getStaticPaths)
@@ -34,11 +33,13 @@ export async function getStaticPaths() {
       filePath: rawNext.filePath
     } : null;
 
-    // AMAN: Memotong ekstensi .md atau .mdx menggunakan split tanpa simbol Regex $
-    const cleanSlug = post.id.split('.')[0];
+    // AMAN & STRING MURNI: Memotong ekstensi berkas (.md / .mdx) tanpa merusak skema [...slug]
+    // Fungsi ini mengambil nama depan sebelum tanda titik terakhir dan menjamin outputnya String.
+    const cleanSlug = post.id.substring(0, post.id.lastIndexOf('.')) || post.id;
 
     return {
-      params: { slug: cleanSlug },
+      // Pastikan slug yang dikirim berupa string tunggal murni, bukan Array atau objek Regex
+      params: { slug: cleanSlug }, 
       props: { 
         post, 
         prevPost,
@@ -47,6 +48,7 @@ export async function getStaticPaths() {
     };
   });
 }
+
 
 
 
