@@ -12,8 +12,9 @@ import config from "@/config";
 
 
 
-// 1. Impor komponen (yang saat ini silang merah)
-import AdjacentPostNav from "./_components/AdjacentPostNav.astro";
+// Ganti "./_components/..." menjadi jalur panjang ini:
+import AdjacentPostNav from "@/pages/[...slug]/_components/AdjacentPostNav.astro";
+
 
 // 2. Simulasi pencarian data postingan (sesuaikan dengan logika Anda)
 // Anggap saja kita sudah mendapatkan data 'sebelum' dan 'sesudah' artikel saat ini
@@ -26,18 +27,30 @@ export async function getStaticPaths() {
   const posts = await getCollection("posts");
   const sortedPosts = getSortedPosts(posts);
 
-  return sortedPosts.map((post: any) => ({
-    // Trik pangkas ekstensi dadi slug root domain murni
-    params: { slug: post.id.replace(/\.(md|mdx)\$/, "") },
-    props: { post },
-  }));
+  // Tambahkan 'index' di dalam map untuk melacak posisi artikel
+  return sortedPosts.map((post: any, index: number) => {
+
+    // Hitung artikel sebelum (prev) dan sesudah (next) berdasarkan urutan
+    const prevPost = index > 0 ? sortedPosts[index - 1] : null;
+    const nextPost = index < sortedPosts.length - 1 ? sortedPosts[index + 1] : null;
+
+    return {
+      // Trik pangkas ekstensi dadi slug root domain murni
+      params: { slug: post.id.replace(/\.(md|mdx)$/, "") },
+      props: { 
+        post, 
+        prevPost, // Kirim data artikel sebelumnya ke props halaman
+        nextPost  // Kirim data artikel selanjutnya ke props halaman
+      },
+    };
+  });
 }
 
 type Props = {
   post: CollectionEntry<"posts">;
 };
 
-const { post } = Astro.props;
+const { post, prevPost, nextPost } = Astro.props;
 
 const {
   title,
