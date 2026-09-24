@@ -10,9 +10,9 @@ import { getSortedPosts } from "@/utils/getSortedPosts";
 import { slugifyStr } from "@/utils/slugify";
 import config from "@/config";
 
+// Jalur absolut resmi menuju tempat barunya di dalam folder komponen utama
 import AdjacentPostNav from "@/components/AdjacentPostNav.astro";
 
-// 1. FUNGSI PENYEDIA RUTE OTOMATIS (getStaticPaths)
 export async function getStaticPaths() {
   const posts = await getCollection("posts");
   const sortedPosts = getSortedPosts(posts);
@@ -33,12 +33,10 @@ export async function getStaticPaths() {
       filePath: rawNext.filePath
     } : null;
 
-    // AMAN & STRING MURNI: Memotong ekstensi berkas (.md / .mdx) tanpa merusak skema [...slug]
-    // Fungsi ini mengambil nama depan sebelum tanda titik terakhir dan menjamin outputnya String.
-    const cleanSlug = post.id.substring(0, post.id.lastIndexOf('.')) || post.id;
+    // PERBAIKAN REGEX: Menggunakan simbol \$ murni untuk memotong ekstensi file secara valid
+    const cleanSlug = post.id.replace(/\.(md|mdx)\$/, "");
 
     return {
-      // Pastikan slug yang dikirim berupa string tunggal murni, bukan Array atau objek Regex
       params: { slug: cleanSlug }, 
       props: { 
         post, 
@@ -49,18 +47,13 @@ export async function getStaticPaths() {
   });
 }
 
-
-
-
-// 2. STRUKTUR PROTOKOL TYPE PROPS (Kunci Utama Penghilang Silang Merah)
 type Props = {
   post: CollectionEntry<"posts">;
   prevPost: any;
   nextPost: any;
 };
 
-// Ambil hak akses properti yang dikirimkan oleh getStaticPaths()
-const { post, prevPost = null, nextPost = null } = Astro.props;
+const { post, prevPost, nextPost } = Astro.props;
 
 const {
   title,
@@ -75,7 +68,8 @@ const {
 
 const { Content } = await render(post);
 
-// --- LOGIKA ARTIKEL TERKAIT ---
+// PERBAIKAN KOMENTAR: Menggunakan strip dua biji agar tidak merusak batas frontmatter Astro
+// LOGIKA ARTIKEL TERKAIT
 const allPostsForRelated = await getCollection("posts");
 const activePosts = allPostsForRelated.filter((p) => !p.data.draft);
 
@@ -88,7 +82,7 @@ const relatedPosts = activePosts
   })
   .slice(0, 3);
 
-// --- LOGIKA SIDEBAR ARTIKEL PILIHAN ---
+// LOGIKA SIDEBAR ARTIKEL PILIHAN
 const featuredPosts = activePosts
   .filter((p) => {
     const isFeatured = p.data.featured === true;
@@ -109,7 +103,7 @@ const featuredPosts = activePosts
   <main class="site-main single" id="main-content">
     <div class="main container">
       <div id="primary" class="content-area primary">
-        <article class="post hentry" itemtype="https://schema.org" itemscope="itemscope">
+        <article class="post hentry" itemtype="https://schema.org" itemscope="itemscope" itemprop="mainEntityOfPage">
           <header class="entry-header">
             <h1 class="entry-title" itemprop="headline">Lirik Lagu {title}</h1>
             <div class="entry-meta">
@@ -144,7 +138,6 @@ const featuredPosts = activePosts
           </div>
         )}
 
-        {/* Pemanggilan komponen dengan data dinamis yang sudah tervalidasi aman */}
         <AdjacentPostNav prevPost={prevPost} nextPost={nextPost} />
 
       </div>
