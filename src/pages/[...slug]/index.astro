@@ -108,6 +108,22 @@ const featuredPosts = activePosts
             </ul>
           </div>
         )}
+
+<div class="navigation">
+{prevPost && (
+<a href={getPostUrl(prevPost.id, prevPost.filePath, locale)} class="prev">
+<span>Prev «</span>
+<div>{prevPost.title}</div>
+</a>
+)}
+{nextPost && (
+<a href={getPostUrl(nextPost.id, nextPost.filePath, locale)} class="next">
+<span>» Next</span>
+<div>{nextPost.title}</div>
+</a>
+)}
+</div>
+
       </div>
 
       <div id="secondary" itemtype="https://schema.org" itemscope="itemscope">
