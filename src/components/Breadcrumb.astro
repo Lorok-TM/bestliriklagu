@@ -1,91 +1,126 @@
 ---
 import { getRelativeLocaleUrl } from "astro:i18n";
-import { getCollection } from "astro:content";
+import { stripBase, stripLocale } from "@/utils/withBase";
+import { useTranslations } from "@/i18n";
+import config from "@/config";
+import { slugifyStr } from "@/utils/slugify"; // Utilitas bawaan Astro Paper kanggo slug tag
 
-// 1. Njaga properti gawan AstroPaper kanthi Strict Type
-export interface Props {
-  breadcrumbList?: Array<{ name: string; path: string }>;
-}
+const locale = Astro.currentLocale ?? config.site.lang;
+const t = useTranslations(locale);
 
-const { breadcrumbList } = Astro.props;
-const { currentLocale = "id", url } = Astro;
-const pathname = url.pathname;
+const pathWithoutBase = stripBase(Astro.url.pathname).replace(/\/+\$/, "");
+const currentUrlPath = stripLocale(pathWithoutBase, locale);
 
-// Fungsi helper kanggo ngowahi teks dadi Title Case ing HTML
-const toTitleCase = (str: string) => 
-  str.replace(/[-_]/g, " ").replace(/\w\S*/g, (txt) => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase());
+// Goleki URL domain utama kanggo properti item/URL absolute
+const siteUrl = Astro.site ? Astro.site.origin : "https://domain-sampeyan.com";
 
-let breadcrumbs: Array<{ name: string; path: string }> = [];
+// Ngurai path dadi array segment
+let breadcrumbList = currentUrlPath.split("/").slice(1).filter(Boolean);
 
-// Yen wis ana properti breadcrumbList gawan, langsung dienggo
-if (breadcrumbList && breadcrumbList.length > 0) {
-  breadcrumbs = breadcrumbList;
+// DETEKSI KONDISI SINGLE POST (src/pages/posts/[...slug]/index.astro)
+// Ciri utamane: segment pertamane yaiku 'posts' lan duwe slug/judul post ing segment kapindho, nanging dudu kaca pagination angka
+const isSinglePost = breadcrumbList[0] === "posts" && breadcrumbList[1] && isNaN(Number(breadcrumbList[1]));
+
+// Ambil props tags sing dikirim soko komponen bapa (yen ana)
+const { tags = [] } = Astro.props;
+
+if (isSinglePost) {
+  // Yen single post, breadcrumb dipeksa dadi: Home > [Tag Name Pertama]
+  // Yen postingan ora duwe tag, otomatis nggunakake fallback teks tag standar
+  const activeTag = tags.length > 0 ? tags[0] : "Blog";
+  breadcrumbList = [activeTag];
 } else {
-  // Logika parsing rute standar kanggo kaca umum
-  const segments = pathname.split("/").filter(Boolean);
-  const isTargetLocale = segments[0] === currentLocale;
-  const startIdx = isTargetLocale ? 1 : 0;
+  // Logika standar gawan Astro Paper kanggo kaca liyane
+  if (breadcrumbList[0] === "posts") {
+    breadcrumbList.splice(
+      0,
+      2,
+      `${t.nav.posts} (${t.pagination.page.toLowerCase()} ${breadcrumbList[1] || 1})`
+    );
+  }
 
-  let currentPath = isTargetLocale ? `/${currentLocale}` : "";
-
-  breadcrumbs = segments.slice(startIdx).map((segment) => {
-    currentPath += `/${segment}`;
-    return {
-      name: toTitleCase(segment),
-      path: currentPath,
-    };
-  });
-}
-
-// 2. Logika Khusus: Ngowahi urutan kapindho kaca single post dadi Tag Pertama
-const allPosts = await getCollection("blog");
-const matchingPost = allPosts.find((post) => {
-  const postUrl = getRelativeLocaleUrl(currentLocale, `/posts/${post.id || post.slug}`);
-  return pathname.endsWith(postUrl) || postUrl.endsWith(pathname);
-});
-
-if (matchingPost && matchingPost.data.tags && matchingPost.data.tags.length > 0) {
-  const firstTag = matchingPost.data.tags[0];
-  const tagPath = getRelativeLocaleUrl(currentLocale, `/tags/${firstTag}`);
-  
-  // Modifikasi array breadcrumb ing posisi indeks ke-1 (posisi nomer 2)
-  if (breadcrumbs.length >= 2) {
-    breadcrumbs[1] = {
-      name: toTitleCase(firstTag),
-      path: tagPath,
-    };
+  if (breadcrumbList[0] === "tags" && !isNaN(Number(breadcrumbList[2]))) {
+    breadcrumbList.splice(
+      1,
+      3,
+      `${breadcrumbList[1]} ${
+        Number(breadcrumbList[2]) === 1
+          ? ""
+          : `(t.pagination.page.toLowerCase() {breadcrumbList[2]})`
+      }`
+    );
   }
 }
+
+const decodeSegment = (value: string) => {
+  try {
+    return decodeURIComponent(value);
+  } catch {
+    return value;
+  }
+};
+
+const navLabels: Record<string, string> = {
+  posts: t.nav.posts,
+  tags: t.nav.tags,
+  about: t.nav.about,
+  archives: t.nav.archives,
+  search: t.nav.search,
+};
 ---
 
-<nav class="breadcrumb" aria-label="Breadcrumb">
-  <ol itemscope itemtype="https://schema.org">
-    <li itemprop="itemListElement" itemscope itemtype="https://schema.org">
-      <a itemprop="item" href={getRelativeLocaleUrl(currentLocale, "/")}>
-        <span itemprop="name">Home</span>
+<nav class="breadcrumb" aria-label="breadcrumb" itemscope="itemscope" itemtype="https://schema.org/BreadcrumbList">
+  <ul class="container">
+    <li itemprop="itemListElement" itemscope="itemscope" itemtype="https://schema.org/ListItem">
+      <a itemprop="item" href={getRelativeLocaleUrl(locale, "")}>
+        <span itemprop="name">{t.nav.home}</span>
       </a>
       <meta itemprop="position" content="1" />
-      {breadcrumbs.length > 0 && <span aria-hidden="true" class="separator">&#x203A;</span>}
+      <span aria-hidden="true">&raquo;</span>
     </li>
+    {
+      breadcrumbList.map((breadcrumb, index) => {
+        const isLast = index + 1 === breadcrumbList.length;
+        const position = index + 2; // Nomer urut 2, 3, dst
+        const label = navLabels[breadcrumb] ?? decodeSegment(breadcrumb);
 
-    {breadcrumbs.map((crumb, index) => {
-      const isLast = index === breadcrumbs.length - 1;
-      const position = index + 2; // Amarga 'Home' wis ngisi posisi nomer 1
+        // LOGIKA BARU KANGGO URL SING AKURAT LAN KOMPLIT
+        let hrefUrl = "";
+        if (isSinglePost) {
+          // Yen single post, langsung diarahke menyang tag-e
+          hrefUrl = `${siteUrl}/tags/${slugifyStr(breadcrumb)}/`;
+        } else {
+          // Kanggo halaman biasa/arsip tag: gabungke segment saka awal nganti posisi saiki
+          // contone: segment ke-1 dadi /tags, segment ke-2 dadi /tags/nama-tag
+          const currentSegments = currentUrlPath.split("/").slice(1).filter(Boolean).slice(0, index + 1).join("/");
+          hrefUrl = `${siteUrl}${getRelativeLocaleUrl(locale, currentSegments)}`;
+          
+          // Pastikake pungkasan URL nganggo slash (/) yen asline nganggo slash
+          if (!hrefUrl.endsWith("/")) hrefUrl += "/";
+        }
 
-      return (
-        <li itemprop="itemListElement" itemscope itemtype="https://schema.org">
-          {!isLast ? (
-            <a itemprop="item" href={crumb.path}>
-              <span itemprop="name">{crumb.name}</span>
+        return isLast ? (
+          <li itemprop="itemListElement" itemscope="itemscope" itemtype="https://schema.org/ListItem">
+            {isSinglePost ? (
+              <a itemprop="item" href={hrefUrl}>
+                <span itemprop="name">{label}</span>
+              </a>
+            ) : (
+                <span itemprop="name" class="current-page">{label}</span>
+                <link itemprop="item" href={hrefUrl} />
+            )}
+            <meta itemprop="position" content={position.toString()} />
+          </li>
+        ) : (
+          <li itemprop="itemListElement" itemscope="itemscope" itemtype="https://schema.org/ListItem">
+            <a itemprop="item" href={hrefUrl}>
+              <span itemprop="name">{label}</span>
             </a>
-          ) : (
-            <span itemprop="name" aria-current="page">{crumb.name}</span>
-          )}
-          <meta itemprop="position" content={String(position)} />
-          {!isLast && <span aria-hidden="true" class="separator">&#x203A;</span>}
-        </li>
-      );
-    })}
-  </ol>
+            <meta itemprop="position" content={position.toString()} />
+            <span aria-hidden="true">&raquo;</span>
+          </li>
+        );
+      })
+    }
+  </ul>
 </nav>
-
