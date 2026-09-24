@@ -12,6 +12,10 @@ type Props = {
 const { tag, tagName, size = "lg" } = Astro.props;
 
 const locale = Astro.currentLocale ?? config.site.lang;
+
+// Cara nggawe Title Case sing 100% aman kanggo TypeScript Astro v5
+const words = tagName.replace(/-/g, " ").split(" ");
+const cleanTagName = words.map(w => w.substring(0, 1).toUpperCase() + w.substring(1)).join(" ");
 ---
 
-<li><a href={getRelativeLocaleUrl(locale, `tags/${tag}/`)} style="text-transform: capitalize;">{tagName}</a></li>
+<li><a href={getRelativeLocaleUrl(locale, `tags/${tag}/`)}>{cleanTagName}</a></li>
