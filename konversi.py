@@ -3,7 +3,7 @@ import re
 import yaml
 
 # Ganti folder_path yen berkas .md sampeyan ana ing folder khusus, misale 'src/content/blog'
-folder_path = "src/content/blog" 
+folder_path = "src/content/posts" 
 
 # Yen berkas .md ana ing folder utama/root, ganti dadi: folder_path = "."
 
