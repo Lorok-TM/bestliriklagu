@@ -67,6 +67,28 @@ const navLabels: Record<string, string> = {
   archives: t.nav.archives,
   search: t.nav.search,
 };
+
+
+
+
+
+type Props = {
+  tags?: string[];
+};
+
+// Jupuk segment URL saiki
+const segments = Astro.url.pathname.split("/").filter(Boolean);
+const isSinglePost = segments.length > 0 && !segments.includes("tags");
+
+// Logika ngganti isi breadcrumb posisi kapindho dadi tag
+let displayLabel = "Blog";
+let tagSlug = "";
+
+if (isSinglePost && tags.length > 0) {
+  displayLabel = tags[0].replace(/-/g, " ").replace(/\b\w/g, c => c.toUpperCase());
+  tagSlug = tags[0].toLowerCase().replace(/\s+/g, "-");
+}
+
 ---
 
 <nav class="breadcrumb" aria-label="breadcrumb" itemscope="itemscope" itemtype="https://schema.org/BreadcrumbList">
@@ -101,10 +123,8 @@ const navLabels: Record<string, string> = {
 
         return isLast ? (
           <li itemprop="itemListElement" itemscope="itemscope" itemtype="https://schema.org/ListItem">
-            {isSinglePost ? (
-              <a itemprop="item" href={hrefUrl}>
-                <span itemprop="name">{label}</span>
-              </a>
+      {isSinglePost && tagSlug ? (
+        <a href={getRelativeLocaleUrl(locale, `tags/${tagSlug}/`)}>{displayLabel}</a>
             ) : (
                 <span itemprop="name" class="current-page">{label}</span>
                 <link itemprop="item" href={hrefUrl} />
