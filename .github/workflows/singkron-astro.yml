@@ -1,0 +1,29 @@
+name: Konversi Frontmatter Astro Paper
+
+on:
+  workflow_dispatch: # Supaya bisa dijalankan manual nganggo tombol
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Cek kode repositori
+        uses: actions/checkout@v4
+
+      - name: Setel Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Instal Kebutuhan Skrip
+        run: pip install pyyaml
+
+      - name: Jalanke Skrip Konversi
+        run: python konversi.py
+
+      - name: Simpen lan Commit Owah-owahan menyang GitHub
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@://github.com'
+          git add .
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Otomatis: Singkronake frontmatter Astro Paper" && git push)
