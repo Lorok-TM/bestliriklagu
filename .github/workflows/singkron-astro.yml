@@ -6,6 +6,10 @@ on:
 jobs:
   run-script:
     runs-on: ubuntu-latest
+    # --- TAMBAHAN I KANGGO NGATASI SILANG ABANG ---
+    permissions:
+      contents: write
+    # ----------------------------------------------
     steps:
       - name: Cek kode repositori
         uses: actions/checkout@v4
