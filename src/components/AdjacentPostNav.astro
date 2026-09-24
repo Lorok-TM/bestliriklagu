@@ -1,26 +1,28 @@
 ---
-// @ts-nocheck
-import config from "@/config";
+interface Props {
+  prevPost: {
+    id: string;
+    title: string;
+    filePath?: string;
+  } | null;
+  nextPost: {
+    id: string;
+    title: string;
+    filePath?: string;
+  } | null;
+}
 
-// Kita gunakan tipe any murni agar compiler tidak melakukan sensor pencocokan objek
-type Props = {
-  prevPost: any;
-  nextPost: any;
-};
-
-const { prevPost, nextPost } = Astro.props;
+const { prevPost, nextPost } = Astro.props as Props;
 ---
 
 <div class="navigation">
-  {prevPost && (
-    /* Menggunakan pemotongan nama file murni langsung menembak ke belakang domain */
+  {prevPost && prevPost.id && (
     <a href={`/${prevPost.id.substring(0, prevPost.id.lastIndexOf('.')) || prevPost.id}/`} class="prev">
       <span>Prev «</span>
       <div>{prevPost.title}</div>
     </a>
   )}
-  {nextPost && (
-    /* Menggunakan pemotongan nama file murni langsung menembak ke belakang domain */
+  {nextPost && nextPost.id && (
     <a href={`/${nextPost.id.substring(0, nextPost.id.lastIndexOf('.')) || nextPost.id}/`} class="next">
       <span>» Next</span>
       <div>{nextPost.title}</div>
